@@ -6,9 +6,9 @@ mkdir -p $CIRRUS_WORKING_DIR/$DEVICE/$ROM
 cd $CIRRUS_WORKING_DIR/$DEVICE/$ROM
 
 # Initialize the repository
-repo init -u https://github.com/PixelExperience/manifest -b twelve-plus -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --manifest-url=https://github.com/PixelExperience/manifest --branch=twelve-plus --current-branch --no-tags --no-clone-bundle
 mkdir .repo/local_manifests
 mv $CIRRUS_WORKING_DIR/local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-repo sync -j$CIRRUS_CPU -c --no-tags --no-clone-bundle --prune --force-sync
+repo sync --jobs=$CIRRUS_CPU --current-branch --no-tags --no-clone-bundle --optimized-fetch --force-sync
