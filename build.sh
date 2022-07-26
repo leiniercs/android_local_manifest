@@ -4,26 +4,27 @@
 eval $(gpg-agent --daemon)
 
 # Create working directory
-mkdir -p $ROM
-cd $ROM
+mkdir -p $DEVICE/$ROM
+cd $DEVICE/$ROM
 
 # Initialize the repository
-repo init -u https://github.com/PixelExperience/manifest -b twelve-plus
+repo init -u https://github.com/PixelExperience/manifest -b twelve-plus --depth 1 -g default,-mips,-darwin,-notdefault
 mkdir .repo/local_manifests
 mv $CIRRUS_WORKING_DIR/local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-repo sync -j$CIRRUS_CPU --no-tags --no-clone-bundle --prune --force-sync --quiet
+repo sync -j$CIRRUS_CPU -c --no-tags --no-clone-bundle --prune --force-sync --quiet
 #rm vendor/aosp/vendorsetup.sh
 
 # Set up environment
 source build/envsetup.sh
-export CUSTOM_VERSION=$CUSTOM_VERSION-R
+export CUSTOM_VERSION="$CUSTOM_VERSION-R"
 
 # Choose a target
 lunch aosp_$DEVICE-user
 
 # Build the code
+export TZ=UTC
 mka bacon -j$CIRRUS_CPU
 
 # Terminate GPG Agent daemon

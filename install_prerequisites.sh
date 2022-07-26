@@ -1,7 +1,5 @@
 #!/bin/sh
 
-ls -1 /usr/lib/jvm/
-
 # Updating sources package listings
 cat << EOF > /etc/apt/sources.list
 deb http://archive.ubuntu.com/ubuntu jammy main restricted universe multiverse
@@ -16,7 +14,7 @@ apt -q -y dist-upgrade
 
 # Installing packages
 apt -q -y install lsb-core autoconf automake axel bison \
-               ccache clang cmake ninja-build expat flex \
+               ccache clang cmake ninja-build soong expat flex \
                g++-multilib gawk gcc-multilib gnupg gperf \
                imagemagick lib32ncurses5-dev lib32z1-dev libtinfo5 libcap-dev \
                libexpat1-dev libmpc-dev libmpfr-dev libncurses5-dev \
