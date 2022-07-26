@@ -1,7 +1,7 @@
 container:
   image: cirrusci/android-sdk:30-ndk
   cpu: 8
-  memory: 32G
+  memory: 8G
 
 env:
   BUILD_HOSTNAME: "cirrus-ci.org"
@@ -18,5 +18,5 @@ build_task:
     folder: "$CIRRUS_WORKING_DIR/$DEVICE/$ROM"
   install_prerequisites_script: bash $CIRRUS_WORKING_DIR/install_prerequisites.sh
   sync_script: bash $CIRRUS_WORKING_DIR/sync.sh
-  build_script: bash $CIRRUS_WORKING_DIR/build.sh
-  publish_script: bash $CIRRUS_WORKING_DIR/publish.sh
+#  build_script: bash $CIRRUS_WORKING_DIR/build.sh
+#  publish_script: bash $CIRRUS_WORKING_DIR/publish.sh
