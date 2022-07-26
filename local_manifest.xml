@@ -5,6 +5,4 @@
   <project path="kernel/xiaomi/garden" name="leiniercs/android_kernel_xiaomi_mt6765" remote="github" revision="11" />
 
   <project path="hardware/xiaomi" name="PixelExperience/hardware_xiaomi" remote="github" revision="twelve"/>
-
-  <project path="vendor/apps/faceunlock" name="AOSP-11/vendor_apps_FaceUnlock" remote="github" revision="11"/>
 </manifest>
