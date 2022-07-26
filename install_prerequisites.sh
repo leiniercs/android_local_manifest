@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Updating sources package listings
 cat << EOF > /etc/apt/sources.list
 deb http://archive.ubuntu.com/ubuntu jammy main restricted universe multiverse
@@ -37,7 +35,7 @@ git config --global user.email "$GIT_EMAIL"
 # Preparing compilation cache
 mkdir -p $CCACHE_DIR
 cat << EOF > $CCACHE_DIR/ccache.conf
-max_size = 50G
+max_size = 10G
 EOF
 
 # Install nsjail
@@ -45,5 +43,3 @@ git clone https://github.com/google/nsjail -b 3.1 --recurse-submodules
 cd nsjail
 make -j$CIRRUS_CPU
 mv nsjail /usr/bin/
-
-exit 0

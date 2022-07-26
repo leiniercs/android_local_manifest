@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Start GPG Agent daemon
 eval $(gpg-agent --daemon)
 
@@ -13,6 +11,4 @@ mkdir .repo/local_manifests
 mv $CIRRUS_WORKING_DIR/local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-repo sync -j$CIRRUS_CPU -c --no-tags --no-clone-bundle --prune --force-sync --quiet
-
-exit 0
+repo sync -j$CIRRUS_CPU -c --no-tags --no-clone-bundle --prune --force-sync
