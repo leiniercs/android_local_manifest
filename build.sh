@@ -8,7 +8,7 @@ mkdir -p $DEVICE/$ROM
 cd $DEVICE/$ROM
 
 # Initialize the repository
-repo init -u https://github.com/PixelExperience/manifest -b twelve-plus -g default,-mips,-darwin,-notdefault --recurse-submodules
+repo init -u https://github.com/PixelExperience/manifest -b twelve-plus -g default,-mips,-darwin,-notdefault
 mkdir .repo/local_manifests
 mv $CIRRUS_WORKING_DIR/local_manifest.xml .repo/local_manifests/
 
@@ -18,7 +18,6 @@ repo sync -j$CIRRUS_CPU -c --no-tags --no-clone-bundle --prune --force-sync --qu
 
 # Set up environment
 source build/envsetup.sh
-export CUSTOM_VERSION="$CUSTOM_VERSION-R"
 
 # Choose a target
 lunch aosp_$DEVICE-user
@@ -31,8 +30,8 @@ mka bacon -j$CIRRUS_CPU
 pkill gpg-agent
 
 # Publish the built ROM
-#ROM_FILE=$(basename out/target/product/$DEVICE/$CUSTOM_VERSION.zip)
+ROM_FILE=$(basename out/target/product/$DEVICE/*.zip)
 #rclone $ROM_FILE cirrus:/$DEVICE/$ROM_FILE
-curl --upload-file out/target/product/$DEVICE/$CUSTOM_VERSION.zip https://transfer.sh/$CUSTOM_VERSION.zip
+curl --upload-file out/target/product/$DEVICE/$ROM.zip https://transfer.sh/$ROM_FILE.zip
 
 exit 0
