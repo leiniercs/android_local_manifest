@@ -8,7 +8,7 @@ mkdir -p $DEVICE/$ROM
 cd $DEVICE/$ROM
 
 # Initialize the repository
-repo init -u https://github.com/PixelExperience/manifest -b twelve-plus --depth 1 -g default,-mips,-darwin,-notdefault
+repo init -u https://github.com/PixelExperience/manifest -b twelve-plus -g default,-mips,-darwin,-notdefault --recurse-submodules
 mkdir .repo/local_manifests
 mv $CIRRUS_WORKING_DIR/local_manifest.xml .repo/local_manifests/
 
