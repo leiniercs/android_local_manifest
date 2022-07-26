@@ -1,3 +1,4 @@
+exit 0
 # Set up environment
 cd $CIRRUS_WORKING_DIR/$DEVICE/$ROM
 source build/envsetup.sh

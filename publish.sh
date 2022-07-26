@@ -1,3 +1,4 @@
+exit 0
 # Publish the built ROM
 cd cd $CIRRUS_WORKING_DIR/$DEVICE/$ROM
 ROM_FILE=$(basename out/target/product/$DEVICE/*.zip)
