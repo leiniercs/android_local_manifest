@@ -14,6 +14,7 @@ mv $CIRRUS_WORKING_DIR/local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
 repo sync -j$CIRRUS_CPU -c --no-tags --no-clone-bundle --prune --force-sync --quiet
+repo sync -j$CIRRUS_CPU -c --no-tags --no-clone-bundle --quiet
 #rm vendor/aosp/vendorsetup.sh
 
 # Set up environment
