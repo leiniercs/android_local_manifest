@@ -1,0 +1,20 @@
+container:
+  image: cirrusci/android-sdk:30-ndk
+  cpu: 8
+  memory: 32G
+
+env:
+  BUILD_HOSTNAME: "cirrus-ci.org"
+  GIT_NAME: "Leinier Cruz Salfran"
+  GIT_EMAIL: "leiniercs@gmail.com"
+  ROM: "pixelexperience"
+  DEVICE: "garden"
+  USE_CCACHE: 1
+  CCACHE_DIR: "$CIRRUS_WORKING_DIR/ccache/$DEVICE/$ROM"
+
+build_task:
+  name: Build PixelExperience AOSP
+  ccache_cache:
+    folder: $CCACHE_DIR
+  install_prerequisites_script: bash $CIRRUS_WORKING_DIR/install_prerequisites.sh
+  build_script: bash $CIRRUS_WORKING_DIR/build.sh
