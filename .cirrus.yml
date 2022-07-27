@@ -17,3 +17,4 @@ build_task:
   sync_script: bash -eo pipefail sync.sh
   build_script: bash -eo pipefail build.sh
   publish_script: bash -eo pipefail publish.sh
+
