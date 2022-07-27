@@ -17,9 +17,9 @@ cd $ROM_DIR
 if [ ! -e .repo_initiated ]; then
   repo init --manifest-url=https://github.com/$ROM/manifest --manifest-branch=$FLAVOR --groups=default,-darwin,-mips,-notdefault
   mkdir .repo/local_manifests
-  cp ../../../../local_manifest.xml .repo/local_manifests/
   touch .repo_initiated
 fi
+cp ../../../../local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
 repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch

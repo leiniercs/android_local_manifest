@@ -14,12 +14,12 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /home/ci/project/rom/garden/PixelExperience/twelve-plus
+          at: /home/ci/project/roms/garden/PixelExperience/twelve-plus
       - run:
           name: Syncronizing
           command: bash -eo pipefail sync.sh
       - persist_to_workspace:
-          root: /home/ci/project/rom/garden/PixelExperience/twelve-plus
+          root: /home/ci/project/roms/garden/PixelExperience/twelve-plus
           path: .
 #      - run:
 #          name: Building
