@@ -14,19 +14,18 @@ sudo apt -y update
 sudo apt -y full-upgrade
 
 # Installing packages
-sudo apt -y install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-gtk3-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
-#sudo apt -y install lsb-core autoconf automake axel bison \
-#               ccache clang cmake ninja-build soong expat flex \
-#               g++-multilib gawk gcc-multilib gnupg gperf \
-#               imagemagick lib32ncurses5-dev lib32z1-dev libtinfo5 libcap-dev \
-#               libexpat1-dev libmpc-dev libmpfr-dev libncurses5-dev \
-#               libprotobuf-dev libnl-route-3-dev libtool protobuf-compiler \
-#               libsdl1.2-dev libssl-dev libtool libxml2-utils '^lzma.*' lzop \
-#               maven ncftp ncurses-dev patchelf pkg-config pngcrush \
-#               pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion \
-#               texinfo w3m xsltproc zlib1g-dev lzip \
-#               libxml-simple-perl libswitch-perl libncurses5 python-is-python3 \
-#               pinentry-curses gpg-agent
+sudo apt -y install lsb-core autoconf automake axel bison \
+               ccache clang cmake ninja-build soong expat flex \
+               g++-multilib gawk gcc-multilib gnupg gperf \
+               imagemagick lib32ncurses5-dev lib32z1-dev libtinfo5 libcap-dev \
+               libexpat1-dev libmpc-dev libmpfr-dev libncurses5-dev \
+               libprotobuf-dev libnl-route-3-dev libtool protobuf-compiler \
+               libsdl1.2-dev libssl-dev libtool libxml2-utils '^lzma.*' lzop \
+               maven ncftp ncurses-dev patchelf pkg-config pngcrush \
+               pngquant python2.7 python-all-dev re2c schedtool squashfs-tools subversion \
+               texinfo w3m xsltproc zlib1g-dev lzip \
+               libxml-simple-perl libswitch-perl libncurses5 python-is-python3 \
+               pinentry-curses gpg-agent
 
 # Installing Android Repository Manager
 mkdir ~/bin
