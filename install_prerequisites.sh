@@ -13,7 +13,7 @@ deb http://archive.ubuntu.com/ubuntu jammy-updates main restricted universe mult
 deb http://archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse
 deb http://security.ubuntu.com/ubuntu jammy-security main restricted universe multiverse
 EOF
-sudo cp sources-$(lsb_release -cs).list /etc/apt/sources.list
+sudo cp sources-jammy.list /etc/apt/sources.list
 sudo apt -y update
 
 # Upgrading the system
