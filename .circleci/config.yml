@@ -20,6 +20,7 @@ jobs:
           command: bash -eo pipefail sync.sh
       - persist_to_workspace:
           root: /home/ci/project/rom/garden/PixelExperience/twelve-plus
+          path: .
 #      - run:
 #          name: Building
 #          command: bash -eo pipefail build.sh
