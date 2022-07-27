@@ -5,3 +5,5 @@ curl --upload-file out/target/product/$DEVICE/$ROM_FILE https://transfer.sh/$ROM
 
 # Clean
 rm -fr out
+
+cd ../..

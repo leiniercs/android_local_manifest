@@ -15,3 +15,5 @@ mv ../../local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
 repo sync --jobs=$NCPU --current-branch --fetch-submodules
+
+cd ../..
