@@ -14,7 +14,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          path: /home/ci/project/rom/garden/PixelExperience/twelve-plus
+          at: /home/ci/project/rom/garden/PixelExperience/twelve-plus
       - run:
           name: Syncronizing ${DEVICE}
           command: bash -eo pipefail sync.sh
