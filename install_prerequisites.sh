@@ -1,6 +1,7 @@
 export NCPU=$(nproc --all)
 
 # Updating sources package listings
+lsb_release -cs
 cat << EOF > sources-focal.list
 deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse
 deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse
@@ -13,7 +14,7 @@ deb http://archive.ubuntu.com/ubuntu jammy-updates main restricted universe mult
 deb http://archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse
 deb http://security.ubuntu.com/ubuntu jammy-security main restricted universe multiverse
 EOF
-sudo cp sources-focal.list /etc/apt/sources.list
+sudo cp sources-$(lsb_release -cs).list /etc/apt/sources.list
 sudo apt -y update
 
 # Upgrading the system
