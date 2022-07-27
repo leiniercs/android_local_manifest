@@ -1,4 +1,3 @@
-export NCPU=$(nproc --all)
 export ROM_DIR="roms/$DEVICE/$ROM/$FLAVOR"
 
 # Setting up Git
@@ -23,4 +22,4 @@ if [ ! -e .repo_initiated ]; then
 fi
 
 # Sync the repository
-repo sync --jobs=$NCPU --current-branch --no-clone-bundle --optimized-fetch
+repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch

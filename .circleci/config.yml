@@ -16,7 +16,7 @@ jobs:
       - attach_workspace:
           at: /home/ci/project/rom/garden/PixelExperience/twelve-plus
       - run:
-          name: Syncronizing ${DEVICE}
+          name: Syncronizing $DEVICE <DEVICE>
           command: bash -eo pipefail sync.sh
       - persist_to_workspace:
           root: /home/ci/project/rom/garden/PixelExperience/twelve-plus
