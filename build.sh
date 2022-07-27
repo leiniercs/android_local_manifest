@@ -6,6 +6,7 @@ source build/envsetup.sh
 lunch aosp_$DEVICE-user
 
 # Build the code
+export CCACHE_EXEC=$(which ccache)
 export TZ=UTC
 mka bacon -j$CIRRUS_CPU
 

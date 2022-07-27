@@ -35,8 +35,10 @@ git config --global user.email "$GIT_EMAIL"
 # Preparing compilation cache
 mkdir -p $CCACHE_DIR
 cat << EOF > $CCACHE_DIR/ccache.conf
+compression = true
 max_size = 10G
 EOF
+ccache -z
 
 # Install nsjail
 git clone https://github.com/google/nsjail -b 3.1 --recurse-submodules
