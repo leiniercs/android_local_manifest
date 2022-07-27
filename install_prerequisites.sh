@@ -1,23 +1,17 @@
 export NCPU=$(nproc --all)
 
 # Updating sources package listings
-cat << EOF > sources-focal.list
-deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse
-deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse
-deb http://archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse
-deb http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse
-EOF
-cat << EOF > sources-jammy.list
+cat << EOF > sources.list
 deb http://archive.ubuntu.com/ubuntu jammy main restricted universe multiverse
 deb http://archive.ubuntu.com/ubuntu jammy-updates main restricted universe multiverse
 deb http://archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse
 deb http://security.ubuntu.com/ubuntu jammy-security main restricted universe multiverse
 EOF
-sudo cp sources-jammy.list /etc/apt/sources.list
+sudo cp sources.list /etc/apt/sources.list
 sudo apt -y update
 
 # Upgrading the system
-sudo apt -y dist-upgrade
+sudo apt -y full-upgrade
 
 # Installing packages
 sudo apt -y install lsb-core autoconf automake axel bison \
