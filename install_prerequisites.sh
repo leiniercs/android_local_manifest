@@ -21,7 +21,7 @@ sudo apt -y dist-upgrade
 
 # Installing packages
 sudo apt -y install lsb-core autoconf automake axel bison \
-               ccache clang cmake ninja-build expat flex \
+               ccache clang cmake ninja-build soong expat flex \
                g++-multilib gawk gcc-multilib gnupg gperf \
                imagemagick lib32ncurses5-dev lib32z1-dev libtinfo5 libcap-dev \
                libexpat1-dev libmpc-dev libmpfr-dev libncurses5-dev \
@@ -37,7 +37,6 @@ sudo apt -y install lsb-core autoconf automake axel bison \
 mkdir ~/bin
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 chmod a+x ~/bin/repo
-export PATH=$PATH:~/bin
 
 # Preparing Git
 git config --global user.name "$GIT_NAME"
@@ -55,4 +54,5 @@ ccache -z
 git clone https://github.com/google/nsjail -b 3.1 --recurse-submodules
 cd nsjail
 make -j$NCPU
+chmod a+x nsjail
 mv nsjail ~/bin/

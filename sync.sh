@@ -1,4 +1,5 @@
 export NCPU=$(nproc --all)
+export PATH=$PATH:~/bin
 
 # Start GPG Agent daemon
 #eval $(gpg-agent --daemon)
