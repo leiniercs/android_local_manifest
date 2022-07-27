@@ -2,7 +2,7 @@ export NCPU=$(nproc --all)
 export PATH=$PATH:~/bin
 
 # Start GPG Agent daemon
-eval $(gpg-agent --daemon)
+#eval $(gpg-agent --daemon)
 
 # Create working directory
 mkdir -p $DEVICE/$ROM
@@ -17,4 +17,4 @@ mv ../../local_manifest.xml .repo/local_manifests/
 repo_sync() {
   repo sync --jobs=$NCPU --current-branch --no-tags --no-clone-bundle --optimized-fetch --force-sync
 }
-reposync || reposync || reposync
+repo_sync || repo_sync || repo_sync
