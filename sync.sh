@@ -9,13 +9,18 @@ git config --global user.email "$GIT_EMAIL"
 #eval $(gpg-agent --daemon)
 
 # Create working directory
-mkdir -p $ROM_DIR
+if [ ! -d $ROM_DIR ]; then
+  mkdir -p $ROM_DIR
+fi
 cd $ROM_DIR
 
 # Initialize the repository
-repo init --manifest-url=https://github.com/$ROM/manifest --manifest-branch=$FLAVOR --groups=default,-darwin,-mips,-notdefault
-mkdir .repo/local_manifests
-cp ../../../../local_manifest.xml .repo/local_manifests/
+if [ ! -e .repo_initiated ]; then
+  repo init --manifest-url=https://github.com/$ROM/manifest --manifest-branch=$FLAVOR --groups=default,-darwin,-mips,-notdefault
+  mkdir .repo/local_manifests
+  cp ../../../../local_manifest.xml .repo/local_manifests/
+  touch .repo_initiated
+fi
 
 # Sync the repository
 repo sync --jobs=$NCPU --current-branch --no-clone-bundle --optimized-fetch

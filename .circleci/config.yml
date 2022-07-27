@@ -13,15 +13,14 @@ jobs:
       FLAVOR: "twelve-plus"
     steps:
       - checkout
-#      - restore_cache:
-#          key: <DEVICE>_<ROM>_<FLAVOR>
+      - restore_cache:
+          key: garden_PixelExperience_twelve-plus
       - run:
-          name: Syncronizing $ROM [$FLAVOR]
-          command: echo $ROM [$FLAVOR]
-#          command: bash -eo pipefail sync.sh
-#      - save_cache:
-#          path: /home/ci/project/$DEVICE_$ROM_$FLAVOR
-#          key: <DEVICE>_<ROM>_<FLAVOR>
+          name: Syncronizing
+          command: bash -eo pipefail sync.sh
+      - save_cache:
+          path: /home/ci/project/rom/garden/PixelExperience/twelve-plus
+          key: garden_PixelExperience_twelve-plus
 #      - run:
 #          name: Building
 #          command: bash -eo pipefail build.sh
