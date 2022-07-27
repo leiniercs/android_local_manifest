@@ -50,6 +50,6 @@ sudo -u $BUILD_USERNAME git config --global user.name "$GIT_NAME"
 sudo -u $BUILD_USERNAME git config --global user.email "$GIT_EMAIL"
 
 # Preparing compilation cache
-sudo -u $BUILD_USERNAME mkdir -p $CCACHE_DIR
+sudo -u $BUILD_USERNAME -H -n mkdir -p $CCACHE_DIR
 sudo -u $BUILD_USERNAME ccache --max-size=10G
 sudo -u $BUILD_USERNAME ccache -z
