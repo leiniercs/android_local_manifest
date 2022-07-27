@@ -4,6 +4,9 @@ jobs:
   build:
     docker:
       - image: leiniercs/aosp:30
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
     environment:
       BUILD_HOSTNAME: "circleci.com"
       GIT_NAME: "Leinier Cruz Salfran"
