@@ -19,8 +19,9 @@ jobs:
           name: Syncronizing
           command: bash -eo pipefail sync.sh
       - save_cache:
-          path: /home/ci/project/rom/garden/PixelExperience/twelve-plus
           key: garden_PixelExperience_twelve-plus
+          paths:
+            - /home/ci/project/rom/garden/PixelExperience/twelve-plus
 #      - run:
 #          name: Building
 #          command: bash -eo pipefail build.sh
