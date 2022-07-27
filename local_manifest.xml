@@ -3,6 +3,6 @@
   <project path="device/xiaomi/garden" name="leiniercs/android_device_xiaomi_garden" remote="github" revision="aosp12_vndk30" />
   <project path="vendor/xiaomi/garden" name="leiniercs/android_vendor_xiaomi_garden" remote="github" revision="twelve30" />
 
-  <remove-project name="external/faceunlock" />
-  <project path="external/faceunlock" name="leiniercs/android_pixelexperienceexternal_faceunlock" remote="github" />
+  <remove-project name="external_faceunlock" />
+  <project path="external/faceunlock" name="leiniercs/android_pixelexperience_external_faceunlock" remote="github" />
 </manifest>
