@@ -1,0 +1,12 @@
+version: 2.1
+
+jobs:
+  aosp:
+    docker:
+      # Primary container image where all steps run
+      - image: cimg/base:2022.05
+    steps:
+      - run: bash install_prerequisites.sh
+      - run: bash sync.sh
+      - run: bash build.sh
+      - run: bash publish.sh
