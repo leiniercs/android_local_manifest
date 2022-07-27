@@ -11,7 +11,7 @@ lunch aosp_$DEVICE-user
 # Build the code
 export CCACHE_EXEC=$(which ccache)
 export TZ=UTC
-m bacon -j$NCPU
+mka bacon -j$NCPU
 
 # Terminate GPG Agent daemon
 #pkill gpg-agent

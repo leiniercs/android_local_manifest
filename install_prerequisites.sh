@@ -26,6 +26,7 @@ sudo apt -y install lsb-core autoconf automake axel bison \
                texinfo w3m xsltproc zlib1g-dev lzip \
                libxml-simple-perl libswitch-perl libncurses5 python-is-python3 \
                pinentry-curses gpg-agent
+apt clean
 
 # Installing Android Repository Manager
 mkdir ~/bin
@@ -51,3 +52,4 @@ make -j$NCPU
 chmod a+x nsjail
 mv nsjail ~/bin/
 cd ..
+rm -fr nsjail
