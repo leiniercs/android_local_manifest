@@ -1,4 +1,5 @@
 export NCPU=$(nproc --all)
+export ROM_DIR="roms/$DEVICE/$ROM/$FLAVOR"
 
 # Start GPG Agent daemon
 #eval $(gpg-agent --daemon)
