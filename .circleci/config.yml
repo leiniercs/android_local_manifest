@@ -16,7 +16,7 @@ jobs:
 #      - restore_cache:
 #          key: <DEVICE>_<ROM>_<FLAVOR>
       - run:
-          name: Syncronizing <ROM> [<FLAVOR>]
+          name: Syncronizing $ROM [$FLAVOR]
           command: echo $ROM [$FLAVOR]
 #          command: bash -eo pipefail sync.sh
 #      - save_cache:
