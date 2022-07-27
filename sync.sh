@@ -1,3 +1,4 @@
+export NCPU=$(nproc --all)
 export ROM_DIR="roms/$DEVICE/$ROM/$FLAVOR"
 
 # Setting up Git
@@ -22,4 +23,4 @@ fi
 cp ../../../../local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch
+repo sync --jobs=$NCPU --current-branch --no-clone-bundle --optimized-fetch
