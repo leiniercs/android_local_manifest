@@ -1,7 +1,7 @@
 container:
   image: leiniercs/acrb:30
-  cpu: 4
-  memory: 16G
+  cpu: 8
+  memory: 32G
 
 env:
   BUILD_HOSTNAME: "cirrus-ci.org"
@@ -14,8 +14,6 @@ env:
 build_task:
   name: Build Android Custom ROM
   timeout_in: 4h
-  rom_cache:
-    folder: "roms/garden/PixelExperience/twelve-plus"
   sync_script: bash -eo pipefail sync.sh
   build_script: bash -eo pipefail build.sh
   publish_script: bash -eo pipefail publish.sh
