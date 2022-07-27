@@ -1,6 +1,10 @@
 export NCPU=$(nproc --all)
 export ROM_DIR="roms/$DEVICE/$ROM/$FLAVOR"
 
+# Setting up Git
+git config --global user.name "$GIT_NAME"
+git config --global user.email "$GIT_EMAIL"
+
 # Start GPG Agent daemon
 #eval $(gpg-agent --daemon)
 
