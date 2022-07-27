@@ -14,5 +14,4 @@ mkdir .repo/local_manifests
 mv ../../local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-repo sync --jobs=$NCPU --current-branch --no-tags --no-clone-bundle --force-sync
-# || repo sync --jobs=$NCPU --current-branch --no-tags --no-clone-bundle
+repo sync --jobs=$NCPU --current-branch --fetch-submodules
