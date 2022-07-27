@@ -1,4 +1,4 @@
-export NCPU=$(nproc)
+export NCPU=$(nproc --all)
 
 # Updating sources package listings
 cat << EOF > sources.list
@@ -30,26 +30,26 @@ apt clean
 
 # Installing Android Repository Manager
 mkdir ~/bin
-curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-chmod a+x ~/bin/repo
-
-# Preparing Git
-git config --global user.name "$GIT_NAME"
-git config --global user.email "$GIT_EMAIL"
-
-# Preparing compilation cache
-mkdir -p $CCACHE_DIR
-cat << EOF > $CCACHE_DIR/ccache.conf
-compression = true
-max_size = 10G
-EOF
-ccache -z
+curl https://storage.googleapis.com/git-repo-downloads/repo > repo
+chmod a+x repo
+sudo mv repo /usr/bin/
 
 # Install nsjail
 git clone https://github.com/google/nsjail -b 3.1 --recurse-submodules
 cd nsjail
 make -j$NCPU
 chmod a+x nsjail
-mv nsjail ~/bin/
+sudo mv nsjail /usr/bin/
 cd ..
 rm -fr nsjail
+
+# Creating compilation user
+useradd -ms /bin/bash -g sudo $BUILD_USERNAME
+echo "$BUILD_USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+sudo -u $BUILD_USERNAME git config --global user.name "$GIT_NAME"
+sudo -u $BUILD_USERNAME git config --global user.email "$GIT_EMAIL"
+
+# Preparing compilation cache
+sudo -u $BUILD_USERNAME mkdir -p $CCACHE_DIR
+sudo -u $BUILD_USERNAME ccache --max-size=10G
+sudo -u $BUILD_USERNAME ccache -z

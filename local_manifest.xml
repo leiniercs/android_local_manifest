@@ -2,7 +2,11 @@
 <manifest>
   <project path="device/xiaomi/garden" name="leiniercs/android_device_xiaomi_garden" remote="github" revision="aosp12_vndk30" />
   <project path="vendor/xiaomi/garden" name="leiniercs/android_vendor_xiaomi_garden" remote="github" revision="twelve30" />
+  <project path="kernel/xiaomi/garden" name="leiniercs/android_kernel_xiaomi_mt6765" remote="github" revision="11" />
 
+  <project path="hardware/xiaomi" name="PixelExperience/hardware_xiaomi" remote="github" revision="twelve" />
+<!--
   <remove-project name="external_faceunlock" />
   <project path="external/faceunlock" name="leiniercs/android_pixelexperience_external_faceunlock" remote="github" revision="twelve" />
+-->
 </manifest>

@@ -1,9 +1,6 @@
 # Publish the built ROM
-cd $DEVICE/$ROM
-ROM_FILE=$(basename out/target/product/$DEVICE/*.zip)
-curl --upload-file out/target/product/$DEVICE/$ROM_FILE https://transfer.sh/$ROM_FILE
+ROM_FILE=$(basename /home/$BUILD_USERNAME/$ROM_DIR/out/target/product/$DEVICE/*.zip)
+curl --upload-file /home/$BUILD_USERNAME/$ROM_DIR/out/target/product/$DEVICE/$ROM_FILE https://transfer.sh/$ROM_FILE
 
 # Clean
-rm -fr out
-
-cd ../..
+#rm -fr out

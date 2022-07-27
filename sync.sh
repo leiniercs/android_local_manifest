@@ -1,20 +1,16 @@
-export NCPU=$(nproc)
-export PATH=$PATH:~/bin
-
+export NCPU=$(nproc -all)
 
 # Start GPG Agent daemon
 #eval $(gpg-agent --daemon)
 
 # Create working directory
-mkdir -p $DEVICE/$ROM
-cd $DEVICE/$ROM
+sudo -u $BUILD_USERNAME mkdir -p $ROM_DIR
 
 # Initialize the repository
-repo init --manifest-url=https://github.com/PixelExperience/manifest --manifest-branch=twelve-plus --groups=default,-darwin,-mips,-notdefault
-mkdir .repo/local_manifests
-mv ../../local_manifest.xml .repo/local_manifests/
+sudo -u $BUILD_USERNAME -D $ROM_DIR repo init --manifest-url=https://github.com/PixelExperience/manifest --manifest-branch=twelve-plus --groups=default,-darwin,-mips,-notdefault
+sudo -u $BUILD_USERNAME -D $ROM_DIR mkdir .repo/local_manifests
+cp ../../local_manifest.xml /tmp/
+sudo -u $BUILD_USERNAME -D $ROM_DIR cp /tmp/local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-repo sync --jobs=$NCPU || repo sync
-
-cd ../..
+sudo -u $BUILD_USERNAME -D $ROM_DIR repo sync --jobs=$NCPU --current-branch --no-clone-bundle --optimized-fetch
