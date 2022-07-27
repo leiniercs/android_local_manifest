@@ -12,7 +12,7 @@ env:
   FLAVOR: "twelve-plus"
 
 build_task:
-  name: Build PixelExperience AOSP
+  name: Build PixelExperience ROM
   rom_cache:
     folder: "~/$DEVICE/$ROM/$FLAVOR"
   sync_script: bash -eo pipefail sync.sh
