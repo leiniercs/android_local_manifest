@@ -10,7 +10,7 @@ mkdir -p $DEVICE/$ROM
 cd $DEVICE/$ROM
 
 # Initialize the repository
-repo init --manifest-url=https://github.com/PixelExperience/manifest --manifest-branch=twelve-plus --groups=default,-darwin,-mips
+repo init --manifest-url=https://github.com/PixelExperience/manifest --manifest-branch=twelve-plus --groups=default,-darwin,-mips,-notdefault
 mkdir .repo/local_manifests
 mv ../../local_manifest.xml .repo/local_manifests/
 
