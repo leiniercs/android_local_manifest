@@ -1,8 +1,9 @@
-export NCPU=$(nproc)
-alias exec_sudo="sudo -u $BUILD_USERNAME -H -n -D $ROM_DIR"
+export NCPU=$(nproc --all)
 
-# Set up environment
-exec_sudo source build/envsetup.sh && lunch aosp_$DEVICE-user && export CCACHE_EXEC=$(which ccache) && export TZ=UTC && mka bacon -j$NCPU
+# Build
+source build/envsetup.sh
+lunch aosp_$DEVICE-user
+mka bacon -j$NCPU
 
 # Terminate GPG Agent daemon
 #pkill gpg-agent
