@@ -44,12 +44,13 @@ cd ..
 rm -fr nsjail
 
 # Creating compilation user
-useradd -ms /bin/bash -g sudo $BUILD_USERNAME
+useradd -m -s /bin/bash -g sudo $BUILD_USERNAME
 echo "$BUILD_USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-sudo -u $BUILD_USERNAME git config --global user.name "$GIT_NAME"
-sudo -u $BUILD_USERNAME git config --global user.email "$GIT_EMAIL"
+alias exec_sudo="sudo -u $BUILD_USERNAME -H -n"
+exec_sudo git config --global user.name "$GIT_NAME"
+exec_sudo git config --global user.email "$GIT_EMAIL"
 
 # Preparing compilation cache
-sudo -u $BUILD_USERNAME -H -n mkdir -p $CCACHE_DIR
-sudo -u $BUILD_USERNAME ccache --max-size=10G
-sudo -u $BUILD_USERNAME ccache -z
+exec_sudo mkdir -p $CCACHE_DIR
+exec_sudo ccache --max-size=10G
+exec_sudo ccache -z
