@@ -20,3 +20,4 @@ jobs:
       - run: bash sync.sh
       - run: bash build.sh
       - run: bash publish.sh
+
