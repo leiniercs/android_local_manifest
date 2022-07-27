@@ -1,4 +1,4 @@
-export NCPU=$(nproc --all)
+export NCPU=$(nproc)
 
 # Updating sources package listings
 cat << EOF > sources.list
