@@ -7,13 +7,13 @@ deb http://archive.ubuntu.com/ubuntu jammy-updates main restricted universe mult
 deb http://archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse
 deb http://security.ubuntu.com/ubuntu jammy-security main restricted universe multiverse
 EOF
-sudo apt -q -y update
+sudo apt -y update
 
 # Upgrading the system
-sudo apt -q -y dist-upgrade
+sudo apt -y dist-upgrade
 
 # Installing packages
-sudo apt -q -y install lsb-core autoconf automake axel bison \
+sudo apt -y install lsb-core autoconf automake axel bison \
                ccache clang cmake ninja-build soong expat flex \
                g++-multilib gawk gcc-multilib gnupg gperf \
                imagemagick lib32ncurses5-dev lib32z1-dev libtinfo5 libcap-dev \
