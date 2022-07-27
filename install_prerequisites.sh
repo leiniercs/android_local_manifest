@@ -1,7 +1,6 @@
 export NCPU=$(nproc --all)
 
 # Updating sources package listings
-lsb_release -cs
 cat << EOF > sources-focal.list
 deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse
 deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse
@@ -22,7 +21,7 @@ sudo apt -y dist-upgrade
 
 # Installing packages
 sudo apt -y install lsb-core autoconf automake axel bison \
-               ccache clang cmake ninja-build soong expat flex \
+               ccache clang cmake ninja-build expat flex \
                g++-multilib gawk gcc-multilib gnupg gperf \
                imagemagick lib32ncurses5-dev lib32z1-dev libtinfo5 libcap-dev \
                libexpat1-dev libmpc-dev libmpfr-dev libncurses5-dev \
