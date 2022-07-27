@@ -14,7 +14,7 @@ env:
 build_task:
   name: Build PixelExperience ROM
   rom_cache:
-    folder: "~/$DEVICE/$ROM/$FLAVOR"
+    folder: "~/rom/garden/PixelExperience/twelve-plus"
   sync_script: bash -eo pipefail sync.sh
-  build_script: bash -eo pipefail build.sh
-  publish_script: bash -eo pipefail publish.sh
+#  build_script: bash -eo pipefail build.sh
+#  publish_script: bash -eo pipefail publish.sh
