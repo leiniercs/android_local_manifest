@@ -1,5 +1,5 @@
 container:
-  image: leiniercs/aosp:30
+  image: leiniercs/acrb:30
   cpu: 8
   memory: 32G
 
@@ -14,7 +14,7 @@ env:
 build_task:
   name: Build PixelExperience AOSP
   rom_cache:
-    folder: "~$DEVICE/$ROM/$FLAVOR"
+    folder: "~/$DEVICE/$ROM/$FLAVOR"
   sync_script: bash -eo pipefail sync.sh
   build_script: bash -eo pipefail build.sh
   publish_script: bash -eo pipefail publish.sh
