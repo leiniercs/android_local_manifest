@@ -1,4 +1,5 @@
 # Set up environment
+export NCPU=$(nproc --all)
 cd $DEVICE/$ROM
 source build/envsetup.sh
 
