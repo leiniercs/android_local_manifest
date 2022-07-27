@@ -12,15 +12,14 @@ if [ ! -d $ROM_DIR ]; then
   mkdir -p $ROM_DIR
 fi
 cd $ROM_DIR
-ls -1
 
 # Initialize the repository
-if [ ! -e repo_initiated ]; then
-#  repo init --manifest-url=https://github.com/$ROM/manifest --manifest-branch=$FLAVOR --groups=default,-darwin,-mips,-notdefault
+if [ ! -e .repo_initiated ]; then
+  repo init --manifest-url=https://github.com/$ROM/manifest --manifest-branch=$FLAVOR --groups=default,-darwin,-mips,-notdefault
   mkdir -p .repo/local_manifests
-  touch repo_initiated
+  touch .repo_initiated
 fi
 cp ../../../../local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-#repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch
+repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch
