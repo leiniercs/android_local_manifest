@@ -1,3 +1,5 @@
+export NCPU=$(nproc --all)
+
 # Updating sources package listings
 cat << EOF > /etc/apt/sources.list
 deb http://archive.ubuntu.com/ubuntu jammy main restricted universe multiverse
@@ -43,5 +45,5 @@ ccache -z
 # Install nsjail
 git clone https://github.com/google/nsjail -b 3.1 --recurse-submodules
 cd nsjail
-make -j$CIRRUS_CPU
+make -j$NCPU
 mv nsjail /usr/bin/
