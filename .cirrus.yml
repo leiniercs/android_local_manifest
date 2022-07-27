@@ -15,7 +15,7 @@ build_task:
   name: Build PixelExperience ROM
   timeout_in: 3h
   rom_cache:
-    folder: "~/roms/garden/PixelExperience/twelve-plus"
+    folder: "roms/garden/PixelExperience/twelve-plus"
   sync_script: bash -eo pipefail sync.sh
 #  build_script: bash -eo pipefail build.sh
 #  publish_script: bash -eo pipefail publish.sh
