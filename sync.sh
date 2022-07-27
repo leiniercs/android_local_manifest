@@ -2,8 +2,8 @@
 #eval $(gpg-agent --daemon)
 
 # Create working directory
-mkdir -p ~/$DEVICE/$ROM
-cd ~/$DEVICE/$ROM
+mkdir -p $DEVICE/$ROM
+cd $DEVICE/$ROM
 
 # Initialize the repository
 repo init --depth=1 --manifest-url=https://github.com/PixelExperience/manifest --branch=twelve-plus --groups=default,-device,-mips,-darwin,-notdefault

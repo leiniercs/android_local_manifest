@@ -1,19 +1,19 @@
 export NCPU=$(nproc --all)
 
 # Updating sources package listings
-cat << EOF > /etc/apt/sources.list
+sudo cat << EOF > /etc/apt/sources.list
 deb http://archive.ubuntu.com/ubuntu jammy main restricted universe multiverse
 deb http://archive.ubuntu.com/ubuntu jammy-updates main restricted universe multiverse
 deb http://archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse
 deb http://security.ubuntu.com/ubuntu jammy-security main restricted universe multiverse
 EOF
-apt -q -y update
+sudo apt -q -y update
 
 # Upgrading the system
-apt -q -y dist-upgrade
+sudo apt -q -y dist-upgrade
 
 # Installing packages
-apt -q -y install lsb-core autoconf automake axel bison \
+sudo apt -q -y install lsb-core autoconf automake axel bison \
                ccache clang cmake ninja-build soong expat flex \
                g++-multilib gawk gcc-multilib gnupg gperf \
                imagemagick lib32ncurses5-dev lib32z1-dev libtinfo5 libcap-dev \
@@ -48,4 +48,4 @@ ccache -z
 git clone https://github.com/google/nsjail -b 3.1 --recurse-submodules
 cd nsjail
 make -j$NCPU
-mv nsjail /usr/bin/
+mv nsjail ~/bin/

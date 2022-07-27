@@ -1,5 +1,5 @@
 # Set up environment
-cd ~/$DEVICE/$ROM
+cd $DEVICE/$ROM
 source build/envsetup.sh
 
 # Choose a target
