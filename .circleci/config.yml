@@ -13,7 +13,7 @@ jobs:
       FLAVOR: "twelve-plus"
     steps:
       - checkout
-      - run: sync.sh
-      - run: build.sh
-      - run: publish.sh
+      - run: bash -eo pipefail sync.sh
+      - run: bash -eo pipefail build.sh
+      - run: bash -eo pipefail publish.sh
 
