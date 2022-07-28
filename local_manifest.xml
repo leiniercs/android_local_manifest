@@ -3,9 +3,8 @@
 <manifest>
   <project path="device/xiaomi/garden" name="leiniercs/android_device_xiaomi_garden" remote="github" revision="twelve30" />
   <project path="vendor/xiaomi/garden" name="leiniercs/android_vendor_xiaomi_garden" remote="github" revision="twelve30" />
-
-  <project path="device/mediatek/sepolicy_vndr" name="device_mediatek_sepolicy_vndr" remote="pixel" revision="twelve" />
 <!--
+  <project path="device/mediatek/sepolicy_vndr" name="device_mediatek_sepolicy_vndr" remote="pixel" revision="twelve" />
   <project path="device/mediatek/common" name="device_mediatek_common" remote="pixel" revision="twelve" />
   <project path="vendor/mediatek/interfaces" name="vendor_mediatek_interfaces" remote="pixel" revision="twelve" />
   <project path="vendor/mediatek/opensource" name="vendor_mediatek-opensource" remote="pixel" revision="twelve" />
