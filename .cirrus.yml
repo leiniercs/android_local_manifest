@@ -1,0 +1,19 @@
+container:
+  image: leiniercs/acrb:30
+  cpu: 8
+  memory: 32G
+
+env:
+  BUILD_HOSTNAME: "cirrus-ci.org"
+  GIT_NAME: "Leinier Cruz Salfran"
+  GIT_EMAIL: "leiniercs@gmail.com"
+  DEVICE: "garden"
+  ROM: "crdroidandroid"
+  FLAVOR: "12.1"
+
+build_task:
+  name: Build Android Custom ROM
+  timeout_in: 4h
+  sync_script: bash sync.sh
+  build_script: bash build.sh
+  publish_script: bash publish.sh
