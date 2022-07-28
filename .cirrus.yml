@@ -10,6 +10,8 @@ env:
   DEVICE: "garden"
   ROM: "crdroidandroid"
   FLAVOR: "12.1"
+  MANIFEST: "android"
+  BUILD_COMMAND: "m bacon"
 
 build_task:
   name: Build Android Custom ROM

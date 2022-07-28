@@ -16,7 +16,7 @@ cd $ROM_DIR
 
 # Initialize the repository
 if [ ! -e .repo_initiated ]; then
-  repo init --manifest-url=https://github.com/$ROM/manifest --manifest-branch=$FLAVOR --groups=default,-darwin,-mips,-notdefault
+  repo init --manifest-url=https://github.com/$ROM/$MANIFEST --manifest-branch=$FLAVOR --groups=default,-darwin,-mips,-notdefault
   mkdir -p .repo/local_manifests
   touch .repo_initiated
 fi
