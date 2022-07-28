@@ -1,3 +1,7 @@
+container:
+  image: leiniercs/acrb:30
+  cpu: 8
+  memory: 32G
 
 env:
   BUILD_HOSTNAME: "cirrus-ci.org"
@@ -7,22 +11,9 @@ env:
   ROM: "PixelExperience"
   FLAVOR: "twelve-plus"
 
-prepare_task:
-  name: Prepare the system
-  timeout_in: 2m
-  container:
-    image: leiniercs/acrb:30
-    cpu: 1
-    memory: 1G
-  prepare_task: bash -eo pipefail echo "System prepared."
-
 build_task:
   name: Build Android Custom ROM
   timeout_in: 4h
-  container:
-    image: leiniercs/acrb:30
-    cpu: 8
-    memory: 32G
   sync_script: bash -e sync.sh
   build_script: bash -e build.sh
   publish_script: bash -e publish.sh
