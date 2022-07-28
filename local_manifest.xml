@@ -6,12 +6,12 @@
 
   <project path="device/mediatek/common" name="device_mediatek_common" remote="pixel" revision="twelve" />
   <project path="device/mediatek/sepolicy_vndr" name="device_mediatek_sepolicy_vndr" remote="pixel" revision="twelve" />
+  <project path="vendor/mediatek/opensource" name="vendor_mediatek-opensource" remote="pixel" revision="twelve" />
   <project path="hardware/xiaomi" name="hardware_xiaomi" remote="pixel" revision="twelve" />
 
   <project path="kernel/xiaomi/garden" name="leiniercs/android_kernel_xiaomi_mt6765" remote="github" revision="11" />
 
 <!--
-  <project path="vendor/mediatek/opensource" name="vendor_mediatek-opensource" remote="pixel" revision="twelve" />
   <project path="vendor/mediatek/ims" name="vendor_mediatek_ims" remote="pixel" revision="twelve" />
   <project path="vendor/mediatek/interfaces" name="vendor_mediatek_interfaces" remote="pixel" revision="twelve" />
   <remove-project name="external_faceunlock" />
