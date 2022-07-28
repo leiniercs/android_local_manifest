@@ -23,4 +23,4 @@ fi
 cp ../../../../local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-repo sync --jobs=16 --current-branch --no-clone-bundle --optimized-fetch
+repo sync --jobs=32 --current-branch --no-clone-bundle --optimized-fetch
