@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <manifest>
   <project path="hardware/xiaomi" name="PixelExperience/hardware_xiaomi" remote="github" revision="twelve" />
 
