@@ -1,4 +1,3 @@
-
 build_task:
   container:
     image: leiniercs/acrb:30
