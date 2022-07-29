@@ -1,13 +1,10 @@
 export NCPU=$(nproc --all)
 export ROM_DIR="roms/$DEVICE/$ROM/$FLAVOR"
-
+id
 # Preparing the remote folder
-sudo service rpcbind start
-sudo service nfs-common start
 mkdir roms
 CURDIR=$(pwd)
-#sudo mount -v -o nfsvers=3,nolock 168.235.81.234:/srv/aosp $CURDIR/roms
-sudo mount -v -o nolock [2604:180:f3::421]:/srv/aosp $CURDIR/roms
+sudo mount -v -t cifs -o uid=1000,gid=1000 //[2604:180:f3::421]/aosp $CURDIR/roms
 
 # Setting up Git
 git config --global user.name "$GIT_NAME"
