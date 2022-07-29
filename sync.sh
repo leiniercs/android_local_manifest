@@ -7,7 +7,7 @@ sudo service nfs-common start
 mkdir roms
 CURDIR=$(pwd)
 #sudo mount -v -o nfsvers=3,nolock 168.235.81.234:/srv/aosp $CURDIR/roms
-sudo mount -v -o nolock 168.235.81.234:/srv/aosp $CURDIR/roms
+sudo mount -v -o vers=3,nolock 168.235.81.234:/srv/aosp $CURDIR/roms
 
 # Setting up Git
 git config --global user.name "$GIT_NAME"
