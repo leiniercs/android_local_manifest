@@ -3,7 +3,8 @@ name: Build Android Custom ROM
 on: push
 
 jobs:
-  build_aosp_job:
+  acrb_job:
+    runs-on: ubuntu-22.04
     container:
       image: docker://leiniercs/acrb:30
 
