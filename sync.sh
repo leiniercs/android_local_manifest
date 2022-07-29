@@ -2,7 +2,8 @@ export NCPU=$(nproc --all)
 export ROM_DIR="roms/$DEVICE/$ROM/$FLAVOR"
 
 # Preparing the remote folder
-sudo mount -t nfs [2604:180:f3::421]:/srv/aosp roms
+mkdir roms
+sudo mount [2604:180:f3::421]:/srv/aosp /home/ci/roms
 
 # Setting up Git
 git config --global user.name "$GIT_NAME"
