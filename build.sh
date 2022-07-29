@@ -1,4 +1,5 @@
 export NCPU=$(nproc --all)
+#export NCPU=64
 export CCACHE_EXEC=$(which ccache)
 export BUILD_HOSTNAME="cirrus-ci.org"
 export DEVICE="garden"

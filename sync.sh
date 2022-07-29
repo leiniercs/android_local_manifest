@@ -5,11 +5,11 @@ export ROM_BRANCH="12.1"
 export ROM_MANIFEST="android"
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
-# Preparing the remote folder
+# Preparing the ROM folder
 mkdir roms
+CURDIR=$(pwd)
 sudo wg-quick up wg0
-CUR_DIR=$(pwd)
-sudo mount -v 100.64.0.1:/srv/aosp $CUR_DIR/roms
+sudo mount -v 100.64.0.1:/srv/aosp $CURDIR/roms
 
 # Setting up Git
 git config --global user.name "$GIT_NAME"
