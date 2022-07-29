@@ -1,7 +1,7 @@
 container:
   image: leiniercs/acrb:30
-  cpu: 8
-  memory: 32G
+  cpu: 2
+  memory: 4G
 
 env:
   BUILD_HOSTNAME: "cirrus-ci.org"
