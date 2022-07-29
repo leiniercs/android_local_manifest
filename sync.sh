@@ -6,7 +6,7 @@ sudo service rpcbind start
 sudo service nfs-common start
 mkdir roms
 CURDIR=$(pwd)
-sudo mount -t nfs -o nfsvers=3 [2604:180:f3::421]:/srv/aosp $CURDIR/roms
+sudo mount -t nfs -o nfsvers=3,nolock [2604:180:f3::421]:/srv/aosp $CURDIR/roms
 
 # Setting up Git
 git config --global user.name "$GIT_NAME"
