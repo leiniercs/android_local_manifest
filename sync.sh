@@ -1,3 +1,7 @@
+ls -1a
+ls -1a roms/
+exit 0
+
 export GIT_NAME="Leinier Cruz Salfran"
 export GIT_EMAIL="leiniercs@gmail.com"
 export ROM_NAME="crdroidandroid"
