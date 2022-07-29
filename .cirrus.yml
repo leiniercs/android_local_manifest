@@ -3,15 +3,6 @@ container:
   cpu: 8
   memory: 32G
 
-env:
-  BUILD_HOSTNAME: "cirrus-ci.org"
-  GIT_NAME: "Leinier Cruz Salfran"
-  GIT_EMAIL: "leiniercs@gmail.com"
-  DEVICE: "garden"
-  ROM: "crdroidandroid"
-  FLAVOR: "12.1"
-  MANIFEST: "android"
-
 build_task:
   name: Build Android Custom ROM
   timeout_in: 4h
