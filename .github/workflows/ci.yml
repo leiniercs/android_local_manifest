@@ -9,20 +9,16 @@ jobs:
       image: docker://leiniercs/acrb:30
 
     steps:
-      - name: Verifying things
-        run: |
-          ls -la /usr/bin/nsjail
-          echo "====="
-#      - name: Checkout
-#        uses: actions/checkout@v2.1.0
+      - name: Checkout
+        uses: actions/checkout@v2.1.0
 #        run: git clone https://github.com/leiniercs/android_local_manifest .
 
-#      - name: Synchronization
-#        run: bash sync.sh
+      - name: Synchronization
+        run: bash sync.sh
 
-#      - name: Building
-#        run: bash build.sh
+      - name: Building
+        run: bash build.sh
 
-#      - name: Publishing
-#        run: bash publish.sh
+      - name: Publishing
+        run: bash publish.sh
 
