@@ -8,8 +8,10 @@ export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 # Preparing the ROM folder
 mkdir roms
 CURDIR=$(pwd)
+sudo service rpcbind start
+sudo service nfs-common start
 sudo wg-quick up wg0
-sudo mount -v -o vers=3 100.64.0.1:/srv/aosp $CURDIR/roms
+sudo mount -o vers=3 100.64.0.1:/srv/aosp $CURDIR/roms
 
 # Setting up Git
 git config --global user.name "$GIT_NAME"

@@ -6,12 +6,12 @@ export DEVICE="garden"
 export ROM_NAME="crdroidandroid"
 export ROM_BRANCH="12.1"
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
+export OUT_DIR="~/out"
 
 # Build
 cd $ROM_DIR
 source build/envsetup.sh
 lunch lineage_$DEVICE-user
-export TZ="UTC"
 m bacon -j$NCPU
 
 # Terminate GPG Agent daemon
