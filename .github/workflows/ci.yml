@@ -4,6 +4,7 @@ on: push
 
 jobs:
   acrb_job:
+    runs-on: ubuntu-22.04
     container:
       image: docker://leiniercs/acrb:30
 
