@@ -1,7 +1,3 @@
-ls -1a
-ls -1a roms/
-exit 0
-
 export GIT_NAME="Leinier Cruz Salfran"
 export GIT_EMAIL="leiniercs@gmail.com"
 export ROM_NAME="crdroidandroid"
@@ -11,6 +7,9 @@ export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
 # Preparing the remote folder
 mkdir roms
+sudo wg-quick up wg0
+CUR_DIR=$(pwd)
+sudo mount -v 100.64.0.1:/srv/aosp $CUR_DIR/roms
 
 # Setting up Git
 git config --global user.name "$GIT_NAME"
