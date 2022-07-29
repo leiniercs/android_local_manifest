@@ -4,7 +4,8 @@ export ROM_DIR="roms/$DEVICE/$ROM/$FLAVOR"
 
 # Preparing the remote folder
 mkdir roms
-sudo mount [2604:180:f3::421]:/srv/aosp /home/ci/roms
+CURDIR=$(pwd)
+sudo mount [2604:180:f3::421]:/srv/aosp $CURDIR/roms
 
 # Setting up Git
 git config --global user.name "$GIT_NAME"
