@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Verifying things
-        - run: |
+        run: |
           ls -la /
           echo "====="
           ls -la /github/
