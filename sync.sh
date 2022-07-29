@@ -9,7 +9,7 @@ export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 mkdir roms
 CURDIR=$(pwd)
 sudo wg-quick up wg0
-sudo mount -v 100.64.0.1:/srv/aosp $CURDIR/roms
+sudo mount -v -o vers=3 100.64.0.1:/srv/aosp $CURDIR/roms
 
 # Setting up Git
 git config --global user.name "$GIT_NAME"
