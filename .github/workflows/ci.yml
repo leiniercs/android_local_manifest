@@ -11,15 +11,7 @@ jobs:
     steps:
       - name: Verifying things
         run: |
-          ls -la /
-          echo "====="
-          ls -la /github/
-          echo "====="
-          ls -la /__w/
-          echo "====="
-          nproc --all
-          echo "====="
-          free -h
+          ls -la /nsjail/
           echo "====="
 #      - name: Checkout
 #        uses: actions/checkout@v2.1.0
