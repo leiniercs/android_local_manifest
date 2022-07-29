@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Verifying things
         run: |
-          ls -la /nsjail/
+          ls -la /usr/bin/nsjail
           echo "====="
 #      - name: Checkout
 #        uses: actions/checkout@v2.1.0
