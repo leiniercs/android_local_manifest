@@ -4,20 +4,19 @@ on: push
 
 jobs:
   acrb_job:
-    runs-on: ubuntu-22.04
     container:
       image: docker://leiniercs/acrb:30
 
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v2.1.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.1.0
 
-    - name: Synchronization
-      run: bash sync.sh
+      - name: Synchronization
+        run: bash sync.sh
 
-    - name: Building
-      run: bash build.sh
+      - name: Building
+        run: bash build.sh
 
-    - name: Publishing
-      run: bash publish.sh
+      - name: Publishing
+        run: bash publish.sh
 
