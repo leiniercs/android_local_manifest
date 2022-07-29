@@ -9,7 +9,6 @@ export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 mkdir roms
 CURDIR=$(pwd)
 sudo service rpcbind start
-sleep 1
 sudo service nfs-common start
 #sudo wg-quick up wg0
 #sudo apt -y install cifs-utils
