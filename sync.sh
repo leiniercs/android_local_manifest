@@ -2,7 +2,8 @@ export NCPU=$(nproc --all)
 export ROM_DIR="roms/$DEVICE/$ROM/$FLAVOR"
 
 # Preparing the remote folder
-sudo /etc/init.d/nfs-common start
+sudo service rpcbind start
+sudo service nfs-common start
 mkdir roms
 CURDIR=$(pwd)
 sudo mount [2604:180:f3::421]:/srv/aosp $CURDIR/roms
