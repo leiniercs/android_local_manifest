@@ -3,9 +3,10 @@ export GIT_EMAIL="leiniercs@gmail.com"
 export ROM_NAME="crdroidandroid"
 export ROM_BRANCH="12.1"
 export ROM_MANIFEST="android"
-export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
+export ROM_DIR="~/roms/$ROM_NAME/$ROM_BRANCH"
 
 # Preparing the ROM folder
+cd ~
 mkdir roms
 #CURDIR=$(pwd)
 #sudo service rpcbind start
