@@ -1,3 +1,4 @@
+
 # Publish
 cd ~
 ROM_FILE=$(basename out/target/product/$DEVICE/*.zip)
