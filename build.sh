@@ -1,5 +1,5 @@
-#export NCPU=$(nproc --all)
-export NCPU=64
+export NCPU=$(nproc --all)
+#export NCPU=64
 export CCACHE_EXEC=$(which ccache)
 export BUILD_HOSTNAME="cirrus-ci.org"
 export DEVICE="garden"
@@ -12,7 +12,10 @@ export OUT_DIR="~/out"
 cd ~/$ROM_DIR
 source build/envsetup.sh
 lunch lineage_$DEVICE-user
-m bacon -j$NCPU
+#m bacon -j$NCPU
+make -j$NCPU selinux
+make -j$NCPU bootimage
+make -j$NCPU init
 
 # Terminate GPG Agent daemon
 #pkill gpg-agent
