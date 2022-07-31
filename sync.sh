@@ -6,6 +6,8 @@ export ROM_MANIFEST="android"
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
 # Preparing the ROM folder
+cp local_manifest.xml ~/
+pwd
 mkdir ~/roms
 #CURDIR=$(pwd)
 #sudo service rpcbind start
