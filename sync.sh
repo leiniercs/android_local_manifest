@@ -3,11 +3,10 @@ export GIT_EMAIL="leiniercs@gmail.com"
 export ROM_NAME="crdroidandroid"
 export ROM_BRANCH="12.1"
 export ROM_MANIFEST="android"
-export ROM_DIR="~/roms/$ROM_NAME/$ROM_BRANCH"
+export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
 # Preparing the ROM folder
-cd ~
-mkdir roms
+mkdir ~/roms
 #CURDIR=$(pwd)
 #sudo service rpcbind start
 #sudo service nfs-common start
@@ -25,10 +24,10 @@ git config --global user.email "$GIT_EMAIL"
 #eval $(gpg-agent --daemon)
 
 # Create working directory
-if [ ! -d $ROM_DIR ]; then
-  mkdir -p $ROM_DIR
+if [ ! -d ~/$ROM_DIR ]; then
+  mkdir -p ~/$ROM_DIR
 fi
-cd $ROM_DIR
+cd ~/$ROM_DIR
 
 # Initialize the repository
 if [ ! -e .repo_initiated ]; then
@@ -36,7 +35,7 @@ if [ ! -e .repo_initiated ]; then
   mkdir -p .repo/local_manifests
   touch .repo_initiated
 fi
-cp ../../../local_manifest.xml .repo/local_manifests/
+cp ~/local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
 repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch
