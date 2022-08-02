@@ -11,3 +11,4 @@ build_task:
   sync_script: bash sync.sh
   build_script: bash build.sh
   publish_script: bash publish.sh
+
