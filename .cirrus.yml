@@ -1,13 +1,13 @@
 build_task:
   container:
     image: leiniercs/acrb:30
-    cpu: 2
-    memory: 4G
-    kvm: true
-#    greedy: true
+    cpu: 8
+    memory:32G
+#    kvm: true
+    greedy: true
 
   name: ACRB-30
 
   sync_script: bash sync.sh
-#  build_script: bash build.sh
-#  publish_script: bash publish.sh
+  build_script: bash build.sh
+  publish_script: bash publish.sh
