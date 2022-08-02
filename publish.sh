@@ -1,3 +1,4 @@
+export DEVICE="dandelion"
 
 # Publish
 cd ~
