@@ -9,6 +9,8 @@ build_task:
   name: ACRB-30
 
   env:
+    BUILD_HOSTNAME: "cirrus-ci.org"
+    BUILD_USER: "ci"
     GIT_NAME: "Leinier Cruz Salfran"
     GIT_EMAIL: "leiniercs@gmail.com"
     DEVICE: "dandelion"
