@@ -1,9 +1,5 @@
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
-sudo apt install -y cgroup-tools
-sudo cgcreate -g memory:leiniercs_32G
-sudo echo 32G > sys/fs/cgroup/memory/leiniercs_32G/memory.limit_in_bytes
-
 # Preparing the ROM folder
 mv local_manifest.xml ~/
 cd ~
@@ -33,11 +29,11 @@ cd ~/$ROM_DIR
 
 # Initialize the repository
 if [ ! -e .repo_initiated ]; then
-  cgexec -g memory:leiniercs_32G repo init --manifest-url=https://github.com/$ROM_NAME/$ROM_MANIFEST --manifest-branch=$ROM_BRANCH --depth=1 --groups=default,-darwin,-mips,-notdefault
+  repo init --manifest-url=https://github.com/$ROM_NAME/$ROM_MANIFEST --manifest-branch=$ROM_BRANCH --depth=1 --groups=default,-darwin,-mips,-notdefault
   mkdir -p .repo/local_manifests
   touch .repo_initiated
 fi
 cp ~/local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-cgexec -g memory:leiniercs_32G repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch
+repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch

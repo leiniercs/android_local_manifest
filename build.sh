@@ -1,5 +1,4 @@
 export NCPU=$(nproc --all)
-#export NCPU=64
 export CCACHE_EXEC=$(which ccache)
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
@@ -7,7 +6,7 @@ export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 cd ~/$ROM_DIR
 source build/envsetup.sh
 lunch lineage_$DEVICE-userdebug
-cgexec -g memory:leiniercs_32G mka bacon -j$NCPU
+mka bacon -j$NCPU
 #m sepolicy -j$NCPU
 #m bootimage -j$NCPU
 #m init -j$NCPU
