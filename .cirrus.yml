@@ -10,7 +10,7 @@ build_task:
 
   env:
     BUILD_HOSTNAME: "cirrus-ci.org"
-    BUILD_USER: "ci"
+    BUILD_USERNAME: "ci"
     GIT_NAME: "Leinier Cruz Salfran"
     GIT_EMAIL: "leiniercs@gmail.com"
     DEVICE: "garden"
