@@ -1,8 +1,8 @@
 export GIT_NAME="Leinier Cruz Salfran"
 export GIT_EMAIL="leiniercs@gmail.com"
-export ROM_NAME="PixelExperience"
-export ROM_BRANCH="twelve-plus"
-export ROM_MANIFEST="manifest"
+export ROM_NAME="crdroidandroid"
+export ROM_BRANCH="12.1"
+export ROM_MANIFEST="android"
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
 # Preparing the ROM folder
