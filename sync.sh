@@ -1,7 +1,4 @@
-nproc --all
-free -h
-exit 0
-
+export NCPU=$(nproc --all)
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
 # Preparing the ROM folder
@@ -40,4 +37,4 @@ fi
 cp ~/local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch
+repo sync --jobs=$NCPU --current-branch --no-clone-bundle --optimized-fetch
