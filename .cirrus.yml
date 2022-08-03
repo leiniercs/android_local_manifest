@@ -1,8 +1,8 @@
 build_task:
   container:
     image: leiniercs/acrb:30
-    cpu: 2
-    memory: 4G
+    cpu: 1
+    memory: 1G
 #    kvm: true
     greedy: true
 

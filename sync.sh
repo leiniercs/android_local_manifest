@@ -1,4 +1,3 @@
-export NCPU=$(nproc --all)
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
 # Preparing the ROM folder
@@ -30,11 +29,11 @@ cd ~/$ROM_DIR
 
 # Initialize the repository
 if [ ! -e .repo_initiated ]; then
-  repo init --manifest-url=https://github.com/$ROM_NAME/$ROM_MANIFEST --manifest-branch=$ROM_BRANCH --depth=1 --groups=default,-darwin,-mips,-notdefault
+  systemd-run --scope -p MemoryMax=8G --user repo init --manifest-url=https://github.com/$ROM_NAME/$ROM_MANIFEST --manifest-branch=$ROM_BRANCH --depth=1 --groups=default,-darwin,-mips,-notdefault
   mkdir -p .repo/local_manifests
   touch .repo_initiated
 fi
 cp ~/local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-repo sync --jobs=$NCPU --current-branch --no-clone-bundle --optimized-fetch
+systemd-run --scope -p MemoryMax=8G --user repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch
