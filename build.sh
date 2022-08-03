@@ -10,7 +10,7 @@ export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 # Build
 cd ~/$ROM_DIR
 source build/envsetup.sh
-brunch aosp_$DEVICE-userdebug
+brunch lineage_$DEVICE-userdebug
 #mka bacon -j$NCPU
 
 # Terminate GPG Agent daemon
