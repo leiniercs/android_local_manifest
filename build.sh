@@ -12,10 +12,7 @@ export OUT_DIR="~/out"
 cd ~/$ROM_DIR
 source build/envsetup.sh
 lunch aosp_$DEVICE-userdebug
-#m bacon -j$NCPU
-m selinux -j$NCPU
-m bootimage -j$NCPU
-m init -j$NCPU
+mka bacon -j$NCPU
 
 # Terminate GPG Agent daemon
 #pkill gpg-agent
