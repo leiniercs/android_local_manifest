@@ -7,7 +7,7 @@ export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 cd ~/$ROM_DIR
 source build/envsetup.sh
 lunch lineage_$DEVICE-userdebug
-systemd-run --scope -p MemoryMax=32G --user mka bacon -j$NCPU
+cgexec -g memory:leiniercs_32G mka bacon -j$NCPU
 #m sepolicy -j$NCPU
 #m bootimage -j$NCPU
 #m init -j$NCPU
