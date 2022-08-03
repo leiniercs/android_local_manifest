@@ -3,4 +3,5 @@
 <manifest>
   <project path="device/xiaomi/dandelion" name="leiniercs/android_device_xiaomi_dandelion-2" remote="github" revision="eleven" />
   <project path="vendor/xiaomi/dandelion" name="leiniercs/android_vendor_xiaomi_dandelion-2" remote="github" revision="eleven" />
+  <project path="device/mediatek/sepolicy_vndr" name="PixelExperience/device_mediatek_sepolicy_vndr" remote="github" revision="eleven" />
 </manifest>
