@@ -13,3 +13,4 @@ m init -j$NCPU
 
 # Terminate GPG Agent daemon
 #pkill gpg-agent
+
