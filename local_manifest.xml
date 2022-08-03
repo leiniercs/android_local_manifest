@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <manifest>
   <project path="device/xiaomi/dandelion" name="leiniercs/android_device_xiaomi_dandelion-2" remote="github" revision="eleven" />
   <project path="vendor/xiaomi/dandelion" name="leiniercs/android_vendor_xiaomi_dandelion-2" remote="github" revision="eleven" />
