@@ -6,7 +6,6 @@ export DEVICE="dandelion"
 export ROM_NAME="PixelExperience"
 export ROM_BRANCH="twelve-plus"
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
-export OUT_DIR="~/out"
 
 # Build
 cd ~/$ROM_DIR
