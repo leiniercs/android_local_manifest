@@ -9,6 +9,8 @@ build_task:
   name: ACRB-30
 
   env:
+    GIT_NAME: "Leinier Cruz Salfran"
+    GIT_EMAIL: "leiniercs@gmail.com"
     DEVICE: "dandelion"
     ROM_NAME: "crdroidandroid"
     ROM_MANIFEST: "android"
