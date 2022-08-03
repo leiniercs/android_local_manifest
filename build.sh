@@ -7,7 +7,7 @@ export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 cd ~/$ROM_DIR
 source build/envsetup.sh
 lunch lineage_$DEVICE-userdebug
-m selinux -j$NCPU
+m sepolicy -j$NCPU
 m bootimage -j$NCPU
 m init -j$NCPU
 
