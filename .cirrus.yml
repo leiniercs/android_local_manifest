@@ -1,10 +1,10 @@
 build_task:
   container:
     image: leiniercs/acrb:30
-    cpu: 8
-    memory: 32G
+    cpu: 2
+    memory: 4G
 #    kvm: true
-#    greedy: true
+    greedy: true
 
   name: ACRB-30
 
@@ -21,5 +21,5 @@ build_task:
     ROM_BRANCH: "12.1"
 
   sync_script: bash sync.sh
-  build_script: bash build.sh
+#  build_script: bash build.sh
 #  publish_script: bash publish.sh
