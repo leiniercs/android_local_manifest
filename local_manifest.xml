@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <manifest>
-  <project path="device/xiaomi/dandelion" name="Redmi-MT6765/android_device_xiaomi_dandelion" remote="github" revision="lineage-18.1" />
-  <project path="vendor/xiaomi/dandelion" name="Redmi-MT6765/vendor_xiaomi_dandelion" remote="github" revision="lineage-18.1" />
-  <project path="device/mediatek/sepolicy_vndr" name="PixelExperience/device_mediatek_sepolicy_vndr" remote="github" revision="eleven" />
+  <project path="device/xiaomi/dandelion" name="Jeremito1/android_device_xiaomi_garden-1" remote="github" revision="11" />
+  <project path="vendor/xiaomi/dandelion" name="Mayuri-Chan/proprietary_vendor_xiaomi_garden" remote="github" revision="11" />
 </manifest>
