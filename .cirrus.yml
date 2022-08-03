@@ -8,6 +8,12 @@ build_task:
 
   name: ACRB-30
 
+  env:
+    DEVICE: "dandelion"
+    ROM_NAME: "crdroidandroid"
+    ROM_MANIFEST: "android"
+    ROM_BRANCH: "12.1"
+
   sync_script: bash sync.sh
   build_script: bash build.sh
   publish_script: bash publish.sh
