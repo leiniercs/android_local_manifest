@@ -9,6 +9,8 @@ build_task:
   name: ACRB-30
 
   env:
+    KBUILD_BUILD_HOST: "cirrus-ci.org"
+    KBUILD_BUILD_USER: "ci"
     BUILD_HOSTNAME: "cirrus-ci.org"
     BUILD_USERNAME: "ci"
     GIT_NAME: "Leinier Cruz Salfran"
