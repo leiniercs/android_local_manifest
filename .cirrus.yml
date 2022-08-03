@@ -4,7 +4,7 @@ build_task:
     cpu: 8
     memory: 32G
 #    kvm: true
-    greedy: true
+#    greedy: true
 
   name: ACRB-30
 
