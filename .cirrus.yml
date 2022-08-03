@@ -13,7 +13,7 @@ build_task:
     BUILD_USER: "ci"
     GIT_NAME: "Leinier Cruz Salfran"
     GIT_EMAIL: "leiniercs@gmail.com"
-    DEVICE: "dandelion"
+    DEVICE: "garden"
     ROM_NAME: "crdroidandroid"
     ROM_MANIFEST: "android"
     ROM_BRANCH: "12.1"
