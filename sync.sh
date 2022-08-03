@@ -1,3 +1,4 @@
+export NCPU=$(nproc --all)
 export GIT_NAME="Leinier Cruz Salfran"
 export GIT_EMAIL="leiniercs@gmail.com"
 export ROM_NAME="PixelExperience"
@@ -41,4 +42,4 @@ fi
 cp ~/local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch
+repo sync --jobs=$NCPU --current-branch --no-clone-bundle --optimized-fetch
