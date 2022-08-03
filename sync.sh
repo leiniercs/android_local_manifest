@@ -1,5 +1,6 @@
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
+sudo apt install -y cgroup-tools
 sudo cgcreate -g memory:leiniercs_32G
 sudo echo 32G > sys/fs/cgroup/memory/leiniercs_32G/memory.limit_in_bytes
 
