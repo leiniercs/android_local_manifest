@@ -34,11 +34,11 @@ cd ~/$ROM_DIR
 
 # Initialize the repository
 if [ ! -e .repo_initiated ]; then
-  repo init --manifest-url=https://github.com/$ROM_NAME/$ROM_MANIFEST --manifest-branch=$ROM_BRANCH --groups=default,-darwin,-mips,-notdefault
+  repo init --manifest-url=https://github.com/$ROM_NAME/$ROM_MANIFEST --manifest-branch=$ROM_BRANCH --depth=1 --groups=default,-darwin,-mips,-notdefault
   mkdir -p .repo/local_manifests
   touch .repo_initiated
 fi
 cp ~/local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch
+repo sync --jobs=8 --depth=1 --current-branch --no-clone-bundle --optimized-fetch
