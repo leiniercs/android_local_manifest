@@ -1,6 +1,9 @@
 export DEVICE="dandelion"
+export ROM_NAME="PixelExperience"
+export ROM_BRANCH="twelve-plus"
+export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
 # Publish
-cd ~
+cd ~/$ROM_DIR
 ROM_FILE=$(basename out/target/product/$DEVICE/*.zip)
 curl --upload-file out/target/product/$DEVICE/$ROM_FILE https://transfer.sh/$ROM_FILE
