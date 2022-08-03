@@ -1,6 +1,3 @@
-export DEVICE="dandelion"
-export ROM_NAME="crdroidandroid"
-export ROM_BRANCH="12.1"
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
 # Publish
