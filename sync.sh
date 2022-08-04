@@ -1,3 +1,4 @@
+
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
 # Preparing the ROM folder
