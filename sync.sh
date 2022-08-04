@@ -5,6 +5,8 @@ export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 cd ~
 mkdir roms
 CURDIR=$(pwd)
+chown root:root $CURDIR
+chmod ugo=rwx $CURDIR
 #sudo service rpcbind start
 #sudo service nfs-common start
 #sudo mount -v -o uid=1000,gid=1000 -t cifs //100.64.0.1/aosp $CURDIR/roms
