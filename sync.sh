@@ -1,22 +1,24 @@
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
 # Preparing the ROM folder
-mv local_manifest.xml ~/
+#mv local_manifest.xml ~/
 cd ~
 mkdir roms
 CURDIR=$(pwd)
-#sudo service rpcbind start
+sudo service rpcbind start
 #sudo service nfs-common start
 #sudo wg-quick up wg0
 #sudo apt -y install cifs-utils
 #sudo mount -v -o uid=1000,gid=1000 -t cifs //100.64.0.1/aosp $CURDIR/roms
 #sudo mount -v -o port=9402,sec=sys 168.235.81.234:/srv/aosp $CURDIR/roms
 #sudo mount -v 100.64.0.1:/ $CURDIR/roms
-#sudo mount -v -t nfs -o port=9402,sec=sys [2604:180:f3::421]:/srv/aosp $CURDIR/roms
+sudo mount -v -o port=9402,ro,nolock [2604:180:f3::421]:/srv/aosp $CURDIR/roms
 
 # Setting up Git
 git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
+
+exit 0
 
 # Start GPG Agent daemon
 #eval $(gpg-agent --daemon)

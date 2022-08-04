@@ -1,8 +1,8 @@
 build_task:
   container:
     image: leiniercs/acrb:30
-    cpu: 8
-    memory: 32G
+    cpu: 1
+    memory:12G
 #    kvm: true
 #    greedy: true
 
@@ -22,4 +22,4 @@ build_task:
 
   sync_script: bash sync.sh
   build_script: bash build.sh
-  publish_script: bash publish.sh
+#  publish_script: bash publish.sh
