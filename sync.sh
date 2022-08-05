@@ -8,9 +8,9 @@ mkdir roms
 #sudo service rpcbind start
 #sudo service nfs-common start
 #sudo mount -v -o uid=1000,gid=1000 -t cifs //100.64.0.1/aosp $CURDIR/roms
-sudo mount -t nfs4 -v -o ro 168.235.81.234:/ $CURDIR/roms
+sudo mount -v -o ro 168.235.81.234:/ $CURDIR/roms
 #sudo mount -v 100.64.0.1:/ $CURDIR/roms
-#sudo mount -v -t nfs4 [2604:180:f3::421]:/ /srv
+#sudo mount -v [2604:180:f3::421]:/ /srv
 ls -l roms/
 #sudo mount -t cifs -v -o ro //168.235.81.234/aosp $CURDIR/roms
 
