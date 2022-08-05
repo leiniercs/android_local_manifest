@@ -1,3 +1,7 @@
+nproc --all
+free -h
+df -h
+exit 0
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
 # Preparing the ROM folder
