@@ -3,7 +3,7 @@ build_task:
     image: leiniercs/acrb:30
     cpu: 1
     memory: 1G
-    kvm: true
+#    kvm: true
     greedy: true
 
   name: ACRB-30
