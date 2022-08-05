@@ -3,6 +3,7 @@ export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 # Preparing the ROM folder
 #mv local_manifest.xml ~/
 cd ~
+CURDIR=$(pwd)
 mkdir roms
 #sudo service rpcbind start
 #sudo service nfs-common start
