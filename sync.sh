@@ -1,3 +1,4 @@
+sudo service iscsid start
 sudo iscsiadm --mode discovery --portal 2604:180:f3::421 --type sendtargets
 exit 0
 export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
