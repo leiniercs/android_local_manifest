@@ -1,15 +1,15 @@
 export NCPU=$(nproc --all)
 export CCACHE_EXEC=$(which ccache)
 export ROM_DIR="/srv/$ROM_NAME/$ROM_BRANCH"
-export PRODUCT_OUT_DIR=~
+#export PRODUCT_OUT_DIR=~
 
 # Build
 #cd ~/$ROM_DIR
 cd $ROM_DIR
 source build/envsetup.sh
 lunch lineage_$DEVICE-userdebug
-#mka bacon -j$NCPU
-m sepolicy -j$NCPU
+mka bacon -j$NCPU
+#m sepolicy -j$NCPU
 #m bootimage -j$NCPU
 #m init -j$NCPU
 
