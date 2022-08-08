@@ -1,4 +1,4 @@
-export ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
+ROM_DIR="roms/$ROM_NAME/$ROM_BRANCH"
 
 # Publish
 cd ~/$ROM_DIR
