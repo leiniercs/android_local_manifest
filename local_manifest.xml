@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <manifest>
+  <project path="device/mediatek/sepolicy" name="LineageOS/android_device_mediatek_sepolicy" remote="github" revision="lineage-17.1" />
   <project path="device/xiaomi/dandelion" name="leiniercs/android_device_xiaomi_dandelion" remote="github" revision="main" />
   <project path="vendor/xiaomi/dandelion" name="leiniercs/android_vendor_xiaomi_dandelion" remote="github" revision="main" />
 </manifest>
