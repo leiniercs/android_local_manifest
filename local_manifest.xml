@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project path="device/mediatek/sepolicy" name="LineageOS/android_device_mediatek_sepolicy" remote="github" revision="lineage-17.1" />
-  <project path="device/xiaomi/garden" name="leiniercs/android_device_xiaomi_garden" remote="github" revision="eleven" />
-  <project path="vendor/xiaomi/garden" name="leiniercs/android_vendor_xiaomi_garden" remote="github" revision="eleven" />
+  <project path="device/xiaomi/garden" name="leiniercs/android_device_xiaomi_garden" remote="github" revision="twelve30" />
+  <project path="vendor/xiaomi/garden" name="leiniercs/android_vendor_xiaomi_garden" remote="github" revision="twelve30" />
 </manifest>
