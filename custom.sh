@@ -1,6 +1,9 @@
 sudo apt install -y openssh-server
 sudo service ssh start
 
+id
+pwd
+ls -lh
 mkdir .ssh
 cp id_ed25519.pub .ssh/authorized_keys
 cp id_ed25519 .ssh/
