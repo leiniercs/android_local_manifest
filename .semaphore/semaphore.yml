@@ -2,11 +2,10 @@ version: v1.0
 name: AOSP Building
 agent:
   machine:
-    type: n2-standard-2
-    os_image: 'leiniercs/acrb:30'
+    type: n2-standard-32
   containers:
     - name: main
-      image: 'registry.semaphoreci.com/node:10'
+      image: 'leiniercs/acrb:30'
 blocks:
   - name: Main block
     task:
