@@ -1,0 +1,20 @@
+version: v1.0
+name: AOSP Building
+agent:
+  machine:
+    type: e2-standard-32
+    os_image: 'leiniercs/acrb:30'
+  containers:
+    - name: main
+      image: 'registry.semaphoreci.com/node:10'
+blocks:
+  - name: Main block
+    task:
+      jobs:
+        - name: Build job
+          commands:
+            - nproc --all
+            - free -h
+            - df -h
+            - pwd
+            - ls -l
