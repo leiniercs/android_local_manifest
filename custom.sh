@@ -3,12 +3,12 @@ sudo service ssh start
 
 OWD=$(pwd)
 cd ~
-mkdir .ssh
-cp ${OWD}/id_ed25519.pub .ssh/authorized_keys
-cp ${OWD}/id_ed25519 .ssh/
-sudo chown ci:ci /home/ci/.ssh/*
-chmod go-r .ssh/*
+sudo mkdir /root/.ssh
+sudo cp ${OWD}/id_ed25519.pub /root/.ssh/authorized_keys
+sudo cp ${OWD}/id_ed25519 /root/.ssh/
+sudo chown root:root /root/.ssh/*
+sudo chmod go-r /root/.ssh/*
 
-ssh -o stricthostkeychecking=no -R 22001:127.0.0.1:22 root@168.235.81.234 "sleep 2h"
+sudo ssh -o stricthostkeychecking=no -R 22001:127.0.0.1:22 root@168.235.81.234 "sleep 2h"
 
 exit 0
