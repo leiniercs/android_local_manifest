@@ -27,4 +27,6 @@ steps:
       - "nproc --all"
       - "free -h"
       - "df -h"
+      - "pwd"
+      - "ls -l"
 #    command: "/usr/bin/build.sh"
