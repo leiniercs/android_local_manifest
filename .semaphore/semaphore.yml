@@ -2,7 +2,7 @@ version: v1.0
 name: AOSP Building
 agent:
   machine:
-    type: n1-standard-32
+    type: n1-standard-16
     os_image: 'leiniercs/acrb:30'
   containers:
     - name: main
