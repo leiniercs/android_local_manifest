@@ -23,4 +23,8 @@ steps:
       ROM_BUILD=lineage_dandelion-user
       LOCAL_MANIFEST_REPO=leiniercs/android_local_manifest
       LOCAL_MANIFEST_BRANCH=lineageos
-    command: "/usr/bin/build.sh"
+    command:
+      - "nproc --all"
+      - "free -h"
+      - "df -h"
+#    command: "/usr/bin/build.sh"
