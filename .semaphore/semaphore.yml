@@ -2,7 +2,8 @@ version: v1.0
 name: AOSP Building
 agent:
   machine:
-    type: n2-standard-32
+    type: n2-standard-2
+    os_image: 'ubuntu2204'
   containers:
     - name: main
       image: 'leiniercs/acrb:30'
