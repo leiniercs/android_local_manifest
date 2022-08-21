@@ -3,7 +3,7 @@ sudo service ssh start
 
 OWD=$(pwd)
 cd ~
-sudo mkdir /root/.ssh
+sudo mkdir -p /root/.ssh
 mkdir .ssh
 sudo cp ${OWD}/id_ed25519.pub /root/.ssh/authorized_keys
 sudo cp ${OWD}/id_ed25519.pub /home/ci/.ssh/authorized_keys
