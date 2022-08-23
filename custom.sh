@@ -1,5 +1,5 @@
 sudo apt install -y openssh-server
-sudo cat /etc/ssh/sshd_config
+sudo echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
 sudo service ssh start
 
 OWD=$(pwd)
