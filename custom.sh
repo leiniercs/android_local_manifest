@@ -10,5 +10,5 @@ mv id_ed25519* .ssh/
 chmod 700 .ssh
 chmod 600 .ssh/*
 
-ssh -o stricthostkeychecking=no -R 22001:127.0.0.1:22 root@168.235.81.234 "sleep 2h" &
-tail -f /var/log/auth.log
+tail -f /var/log/syslog &
+ssh -o stricthostkeychecking=no -R 22001:127.0.0.1:22 root@168.235.81.234 "sleep 2h"
