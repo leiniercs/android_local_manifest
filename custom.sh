@@ -10,5 +10,6 @@ mv id_ed25519* .ssh/
 chmod 700 .ssh
 chmod 600 .ssh/*
 
-tail -f /var/log/syslog &
+eval $(ssh-agent)
+ssh-add .ssh/id_ed25519
 ssh -o stricthostkeychecking=no -R 22001:127.0.0.1:22 root@168.235.81.234 "sleep 2h"
