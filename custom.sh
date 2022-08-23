@@ -3,7 +3,7 @@ sudo service ssh start
 sudo chmod 700 /home/ci
 
 OWD=$(pwd)
-cd ~
+cd /home/ci
 unzip ${OWD}/files.zip
 mkdir .ssh
 cp id_ed25519.pub .ssh/authorized_keys
