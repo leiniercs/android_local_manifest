@@ -1,5 +1,6 @@
 sudo apt install -y openssh-server
 sudo service ssh start
+sudo chmod 700 /home/ci
 
 OWD=$(pwd)
 cd ~
