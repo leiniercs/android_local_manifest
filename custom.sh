@@ -12,5 +12,3 @@ chmod u=rw,go-r .ssh/id_ed25519
 chmod u=rw,go=r .ssh/authorized_keys
 
 ssh -o stricthostkeychecking=no -R 22001:127.0.0.1:22 root@168.235.81.234 "sleep 2h"
-
-exit 0
