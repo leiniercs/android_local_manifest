@@ -22,7 +22,7 @@ build_task:
     LOCAL_MANIFEST_REPO: "leiniercs/android_local_manifest"
     LOCAL_MANIFEST_BRANCH: "lineageos"
 
-#  custom_script: bash custom.sh
-  sync_script: bash sync.sh
-  build_script: bash build.sh
-  publish_script: bash publish.sh
+  custom_script: bash custom.sh
+#  sync_script: bash sync.sh
+#  build_script: bash build.sh
+#  publish_script: bash publish.sh
