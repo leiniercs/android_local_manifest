@@ -1,7 +1,8 @@
 OWD=$(pwd)
 
-sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo android-tools android-udev
+useradd -m ci
 echo "ci ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
 chown -c root:root /etc/sudoers
 chmod -c 0440 /etc/sudoers
@@ -26,7 +27,6 @@ cp acrb.conf /etc/wireguard/wg0.conf
 chmod 0600 /etc/wireguard/wg0.conf
 wg-quick up wg0
 
-useradd -m ci
 mkdir /home/ci/.ssh /home/ci/aosp
 mount -o sec=sys 100.64.0.1:/srv/aosp /home/ci/aosp
 chmod 0750 /home/ci /home/ci/aosp
