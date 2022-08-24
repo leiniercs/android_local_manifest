@@ -1,10 +1,10 @@
 OWD=$(pwd)
 
 pacman -Suy
-pacman -Ss openssh
-systemctl start openssh
-ls /etc/init.d/
-service ssh start
+pacman -Ss openssh nfs-utils
+ls /etc/
+echo ""
+ls /etc/rc.d/
 
 exit 0
 
