@@ -12,6 +12,7 @@ chown -c root:root /etc/sudoers
 chmod -c 0440 /etc/sudoers
 cd /tmp
 git clone https://aur.archlinux.org/yay-git
+chown -R ci:ci yay-git
 cd yay-git
 sudo -E -u ci makepkg -si --skippgpcheck --noconfirm --needed
 sudo -u ci yay --noconfirm --needed -S ncurses5-compat-libs lib32-ncurses5-compat-libs aosp-devel xml2 lineageos-devel libxcrypt-compat
