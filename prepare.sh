@@ -11,7 +11,7 @@ cd /tmp
 git clone https://aur.archlinux.org/yay-git
 chown -R ci:ci yay-git
 cd yay-git
-sudo -u ci makepkg -si
+sudo -u ci makepkg -si --noconfirm --needed
 sudo -u ci yay --noconfirm --needed -S ncurses5-compat-libs lib32-ncurses5-compat-libs aosp-devel xml2 lineageos-devel libxcrypt-compat
 
 exit 0
