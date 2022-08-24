@@ -1,14 +1,13 @@
 OWD=$(pwd)
 
 sudo apt install -y openssh-server
-sudo cat /etc/ssh/sshd_config
 sudo service ssh start
 
 eval $(ssh-agent)
 
-sudo chmod 0755 /home
-sudo chmod 0700 /home/ci
-cd /home/ci
+getent passwd | grep ci
+cd ~
+pwd
 unzip ${OWD}/files.zip
 mkdir .ssh
 sudo chmod 0700 .ssh
