@@ -1,15 +1,18 @@
 OWD=$(pwd)
-pacman --noconfirm -Syu openssh nfs-utils unzip resolvconf wireguard-tools
+pacman --noconfirm -Syu openssh nfs-utils unzip resolvconf wireguard-tools curl
+useradd -m ci
+mkdir /home/ci/aosp
+chown ci:ci /home/ci/aosp
+cd /etc/ssh
+ssh-keygen -A
+/usr/bin/sshd
 chmod 0700 /root
 cd /root
 unzip ${OWD}/files.zip
 cp acrb.conf /etc/wireguard/wg0.conf
 chmod 0600 /etc/wireguard/wg0.conf
 wg-quick up wg0
-cd /etc/ssh
-echo "Port 22001" >> sshd_config
-ssh-keygen -A
-/usr/bin/sshd
+mount -o sec=sys 100.64.0.1:/srv/aosp /home/ci/aosp
 cd /root
 eval $(ssh-agent)
 ssh-add sshkey
