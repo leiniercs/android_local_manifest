@@ -1,6 +1,7 @@
 OWD=$(pwd)
-pacman --noconfirm -Syu iproute2 openssh nfs-utils unzip
-while [ $? -ne 0 ]; do
+pacman --noconfirm -Syu iproute2 openssh nfs-utils unzip &
+while [ ! -f /etc/ssh/ssh_host_ed25519_key ]; do
+  sleep 1
 done
 echo "Port 22001" >> /etc/ssh/sshd_config
 /usr/sbin/sshd
