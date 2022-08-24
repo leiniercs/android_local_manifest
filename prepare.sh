@@ -1,9 +1,11 @@
 OWD=$(pwd)
 
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo android-tools android-udev ccache
+pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo android-tools android-udev ccache squashfs-tools schedtool bc rsync vim jdk11-openjdk lib32-readline lib32-ncurses5-compat-libs
+cat /etc/makepkg.conf
 export USE_CCACHE=1
 export CCACHE_EXEC=$(which ccache)
+export MAKEFLAGS="-j$(nproc --all)"
 useradd -m ci
 echo "root ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
 echo "ci ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
