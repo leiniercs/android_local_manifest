@@ -1,12 +1,8 @@
 OWD=$(pwd)
-pacman --noconfirm -Syu openssh nfs-utils unzip wireguard-tools
-eval $(ssh-agent)
+pacman --noconfirm -Syu openssh nfs-utils unzip resolvconf wireguard-tools
 chmod 0700 /root
 cd /root
-mkdir .ssh
-chmod 0700 .ssh
 unzip ${OWD}/files.zip
-ssh-add sshkey
 cp acrb.conf /etc/wireguard/wg0.conf
 chmod 0600 /etc/wireguard/wg0.conf
 wg-quick up wg0
@@ -15,6 +11,10 @@ echo "Port 22001" >> sshd_config
 ssh-keygen -A
 /usr/bin/sshd
 cd /root
+eval $(ssh-agent)
+ssh-add sshkey
+mkdir .ssh
+chmod 0700 .ssh
 ssh-keygen -t ed25519 -P "" -f sshdkey
 cat sshdkey.pub > .ssh/authorized_keys
 chmod 0600 .ssh/authorized_keys
@@ -22,7 +22,6 @@ echo "Host *" > .ssh/config
 echo "  StrictHostKeyChecking no" >> .ssh/config
 #scp sshdkey root@168.235.81.234:/root/sshkey
 scp sshdkey root@100.64.0.1:/root/sshkey
-ip a s ens4
 #ssh -R 22001:127.0.0.1:22001 root@168.235.81.234 "sleep 2h"
 ssh -R 22001:127.0.0.1:22001 root@100.64.0.1 "sleep 2h"
 exit 0
