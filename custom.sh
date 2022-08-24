@@ -1,6 +1,8 @@
 OWD=$(pwd)
 pacman --noconfirm -Syu iproute2 openssh nfs-utils unzip
-sleep 30
+while [ ! -f /etc/ssh/sshd_config ]; do
+  sleep 1
+done
 echo "Port 22001" >> /etc/ssh/sshd_config
 /usr/sbin/sshd
 eval $(ssh-agent)
