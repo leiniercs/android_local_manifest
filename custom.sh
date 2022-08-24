@@ -1,8 +1,8 @@
 OWD=$(pwd)
 
-pacman -Suy --noconfirm openssh nfs-utils
+pacman -Suy --noconfirm openssh nfs-utils unzip
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-sshd
+/usr/sbin/sshd
 
 eval $(ssh-agent)
 cd /root
