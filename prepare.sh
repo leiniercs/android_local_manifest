@@ -6,7 +6,6 @@ export USE_CCACHE=1
 export CCACHE_EXEC=$(which ccache)
 export MAKEFLAGS="-j$(nproc --all)"
 useradd -m ci
-echo "root ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
 echo "ci ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 chown -c root:root /etc/sudoers
 chmod -c 0440 /etc/sudoers
@@ -14,7 +13,8 @@ cd /tmp
 git clone https://aur.archlinux.org/yay-git
 chown -R ci:ci yay-git
 cd yay-git
-sudo -E -u ci makepkg -si --skippgpcheck --noconfirm --needed
+#sudo -E -u ci makepkg -si --skippgpcheck --noconfirm --needed
+sudo -E -u ci makepkg -si --noconfirm --needed
 sudo -u ci yay --noconfirm --needed -S ncurses5-compat-libs lib32-ncurses5-compat-libs aosp-devel xml2 lineageos-devel libxcrypt-compat
 
 cd /etc/ssh
@@ -29,7 +29,7 @@ chmod 0600 /etc/wireguard/wg0.conf
 wg-quick up wg0
 
 mkdir /home/ci/.ssh /home/ci/aosp
-mount -o sec=sys 100.64.0.1:/srv/aosp /home/ci/aosp
+mount -o sec=sys,nolock 100.64.0.1:/srv/aosp /home/ci/aosp
 chmod 0750 /home/ci /home/ci/aosp
 cp sshkey.pub /home/ci/.ssh/authorized_keys
 chmod -R 0600 /home/ci/.ssh
