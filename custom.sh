@@ -5,6 +5,7 @@ echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 sshd
 
 eval $(ssh-agent)
+cd /root
 mkdir .ssh
 chmod 0700 .ssh
 unzip ${OWD}/files.zip
