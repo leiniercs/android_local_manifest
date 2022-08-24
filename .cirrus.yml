@@ -1,6 +1,7 @@
 build_task:
   container:
-    image: leiniercs/acrb:30
+#    image: leiniercs/acrb:30
+    image: archlinux
     cpu: 1
     memory: 1G
     kvm: true

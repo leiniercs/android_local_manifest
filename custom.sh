@@ -1,3 +1,10 @@
+id
+pwd
+ls -lha
+exit 0
+
+
+
 OWD=$(pwd)
 
 sudo apt install -y openssh-server
