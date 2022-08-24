@@ -1,10 +1,8 @@
 OWD=$(pwd)
 
 pacman -Suy
-pacman -Ss openssh nfs-utils
-ls /etc/
-echo ""
-ls /etc/rc.d/
+pacman -Sy openssh nfs-utils
+ls /usr/local/etc/rc.d/
 
 exit 0
 
