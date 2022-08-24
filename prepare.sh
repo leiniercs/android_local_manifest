@@ -1,6 +1,15 @@
 OWD=$(pwd)
 
-pacman --noconfirm -Syu openssh nfs-utils sudo resolvconf wireguard-tools curl git unzip p7zip squashfs-tools python repo
+sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+pacman -Syyu --noconfirm --needed multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo android-tools android-udev
+packages="ncurses5-compat-libs lib32-ncurses5-compat-libs aosp-devel xml2 lineageos-devel libxcrypt-compat"
+for package in $packages; do
+    git clone https://aur.archlinux.org/"$package"
+    cd "$package" || exit
+    makepkg -si --skippgpcheck --noconfirm --needed
+    cd - || exit
+    rm -rf "$package"
+done
 
 cd /etc/ssh
 echo "Port 22001" >> sshd_config
