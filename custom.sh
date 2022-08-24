@@ -1,12 +1,5 @@
 OWD=$(pwd)
-pacman --noconfirm -Syu iproute2 openssh nfs-utils unzip wireguard
-cp acrb.conf /etc/wireguard/wg0.conf
-chmod 0600 /etc/wireguard/wg0.conf
-wg-quick up wg0
-cd /etc/ssh
-echo "Port 22001" >> sshd_config
-ssh-keygen -A
-/usr/bin/sshd
+pacman --noconfirm -Syu openssh nfs-utils unzip wireguard-tools
 eval $(ssh-agent)
 chmod 0700 /root
 cd /root
@@ -14,6 +7,14 @@ mkdir .ssh
 chmod 0700 .ssh
 unzip ${OWD}/files.zip
 ssh-add sshkey
+cp acrb.conf /etc/wireguard/wg0.conf
+chmod 0600 /etc/wireguard/wg0.conf
+wg-quick up wg0
+cd /etc/ssh
+echo "Port 22001" >> sshd_config
+ssh-keygen -A
+/usr/bin/sshd
+cd /root
 ssh-keygen -t ed25519 -P "" -f sshdkey
 cat sshdkey.pub > .ssh/authorized_keys
 chmod 0600 .ssh/authorized_keys
