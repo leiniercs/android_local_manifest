@@ -1,6 +1,11 @@
-id
-pwd
-ls -lha
+OWD=$(pwd)
+
+pacman -Suy
+pacman -Ss openssh
+systemctl start openssh
+ls /etc/init.d/
+service ssh start
+
 exit 0
 
 
