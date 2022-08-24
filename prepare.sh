@@ -1,5 +1,6 @@
 OWD=$(pwd)
 
+cat /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo ccache unzip jdk11-openjdk android-tools
 echo 'MAKEFLAGS="-j$(nproc --all)"' >> /etc/makepkg.conf
