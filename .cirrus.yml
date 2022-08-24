@@ -9,21 +9,7 @@ build_task:
 
   name: ACRB
 
-  env:
-    KBUILD_BUILD_HOST: "cirrus-ci.org"
-    KBUILD_BUILD_USER: "ci"
-    BUILD_HOSTNAME: "cirrus-ci.org"
-    BUILD_USERNAME: "ci"
-    GIT_NAME: "Leinier Cruz Salfran"
-    GIT_EMAIL: "leiniercs@gmail.com"
-    DEVICE: "dandelion"
-    ROM_REPO: "LineageOS/android"
-    ROM_BRANCH: "lineage-20.0"
-    ROM_BUILD: "lineage_dandelion-user"
-    LOCAL_MANIFEST_REPO: "leiniercs/android_local_manifest"
-    LOCAL_MANIFEST_BRANCH: "lineageos"
-
-  prepare_script: bash prepare.sh
-  sync_script: sudo -u ci sync.sh
-  build_script: sudo -u ci build.sh
-#  publish_script: sudo -u vi publish.sh
+  prepare_script: $CIRRUS_WORKING_DIR/prepare.sh
+  sync_script: sudo -u ci $CIRRUS_WORKING_DIR/sync.sh
+  build_script: sudo -u ci $CIRRUS_WORKING_DIR/build.sh
+#  publish_script: sudo -u ci $CIRRUS_WORKING_DIR/publish.sh

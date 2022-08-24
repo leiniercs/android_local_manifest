@@ -1,5 +1,3 @@
-env
-
 OWD=$(pwd)
 
 pacman --noconfirm -Syu openssh nfs-utils sudo resolvconf wireguard-tools curl git unzip p7zip squashfs-tools python repo

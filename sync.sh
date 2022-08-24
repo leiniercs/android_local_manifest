@@ -2,7 +2,7 @@
 . env.sh
 
 # Preparing the ROM folder
-mv local_manifest.xml ~/
+cp local_manifest.xml ~/
 cd ~/aosp
 
 # Setting up Git
@@ -15,4 +15,4 @@ mkdir -p .repo/local_manifests
 mv ~/local_manifest.xml .repo/local_manifests/
 
 # Sync the repository
-repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch
+repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch --quiet
