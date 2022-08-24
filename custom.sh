@@ -1,7 +1,6 @@
-alias pmi="pacman --noconfirm -Suy"
 OWD=$(pwd)
 
-pmi openssh nfs-utils unzip
+pacman --noconfirm -Suy openssh nfs-utils unzip
 echo "AuthorizedKeysFile /etc/ssh/authorized_keys" >> /etc/ssh/sshd_config
 /usr/sbin/sshd
 
