@@ -1,7 +1,7 @@
 OWD=$(pwd)
 
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo android-tools android-udev ccache squashfs-tools schedtool bc rsync vim jdk11-openjdk lib32-readline lib32-ncurses5-compat-libs
+pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo android-tools android-udev ccache squashfs-tools schedtool bc rsync vim jdk11-openjdk
 cat /etc/makepkg.conf
 export USE_CCACHE=1
 export CCACHE_EXEC=$(which ccache)
