@@ -1,8 +1,8 @@
 # Prepare environment
-. env.sh
+source /tmp/cirrus-ci-build/env.sh
+cd ~/aosp
 
 # Build
-cd ~/aosp
 source build/envsetup.sh
 lunch ${ROM_BUILD}
 mka bacon
