@@ -6,11 +6,13 @@ sudo service ssh start
 
 eval $(ssh-agent)
 
+sudo chmod 0755 /home
+sudo chmod 0700 /home/ci
 cd /home/ci
 unzip ${OWD}/files.zip
 mkdir .ssh
-sudo chmod 0700 /home/ci /home/ci/.ssh
-cp sshkey.pub .ssh/authorized_keys
+sudo chmod 0700 .ssh
+mv sshkey.pub .ssh/authorized_keys
 chmod 0600 .ssh/authorized_keys
 ssh-add sshkey
 
