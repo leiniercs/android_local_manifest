@@ -1,6 +1,8 @@
+# Prepare environment
+. env.sh
+
 # Preparing the ROM folder
 mv local_manifest.xml ~/
-mkdir -p ~/aosp
 cd ~/aosp
 
 # Setting up Git

@@ -1,3 +1,6 @@
+# Prepare environment
+. env.sh
+
 # Publish
 cd ~/aosp
 ROM_FILE=$(basename out/target/product/${DEVICE}/*.zip)
