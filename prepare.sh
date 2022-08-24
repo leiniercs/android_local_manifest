@@ -4,7 +4,7 @@ sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo ccache unzip android-tools
 export USE_CCACHE=1
 export CCACHE_EXEC=$(which ccache)
-export MAKEFLAGS="-j$(nproc --all)"
+echo 'MAKEFLAGS="-j$(nproc --all)"' >> /etc/makepkg.conf
 useradd -m ci
 echo "ci ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 chown -c root:root /etc/sudoers
@@ -13,8 +13,7 @@ cd /tmp
 git clone https://aur.archlinux.org/yay-git
 chown -R ci:ci yay-git
 cd yay-git
-#sudo -E -u ci makepkg -si --skippgpcheck --noconfirm --needed
-sudo -E -u ci makepkg -si --noconfirm --needed
+sudo -u ci makepkg -si --noconfirm --needed
 sudo -u ci yay --noconfirm --needed -S ncurses5-compat-libs lib32-ncurses5-compat-libs aosp-devel xml2 lineageos-devel libxcrypt-compat
 
 cd /etc/ssh
