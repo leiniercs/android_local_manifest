@@ -2,14 +2,14 @@ build_task:
   container:
 #    image: leiniercs/acrb:30
     image: archlinux
-    cpu: 8
-    memory: 32G
+    cpu: 2
+    memory: 4G
     kvm: true
 #    greedy: true
 
   name: ACRB
 
   prepare_script: $CIRRUS_WORKING_DIR/prepare.sh
-  sync_script: sudo -u ci $CIRRUS_WORKING_DIR/sync.sh
-  build_script: sudo -u ci $CIRRUS_WORKING_DIR/build.sh
+#  sync_script: sudo -u ci $CIRRUS_WORKING_DIR/sync.sh
+#  build_script: sudo -u ci $CIRRUS_WORKING_DIR/build.sh
 #  publish_script: sudo -u ci $CIRRUS_WORKING_DIR/publish.sh
