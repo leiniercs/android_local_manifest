@@ -1,6 +1,6 @@
 OWD=$(pwd)
 
-pacman -Suy openssh nfs-utils
+pacman -Suy --noconfirm openssh nfs-utils
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 sshd
 
