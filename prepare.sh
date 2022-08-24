@@ -1,14 +1,18 @@
 OWD=$(pwd)
 
 sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-pacman -Syyu --noconfirm --needed multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo android-tools android-udev
+pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo android-tools android-udev
+echo "ci ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
+chown -c root:root /etc/sudoers
+chmod -c 0440 /etc/sudoers
 packages="ncurses5-compat-libs lib32-ncurses5-compat-libs aosp-devel xml2 lineageos-devel libxcrypt-compat"
 for package in $packages; do
-    git clone https://aur.archlinux.org/"$package"
-    cd "$package" || exit
-    makepkg -si --skippgpcheck --noconfirm --needed
-    cd - || exit
-    rm -rf "$package"
+  cd /tmp
+  sudo -u ci git clone https://aur.archlinux.org/"$package"
+  cd "$package" || exit
+  sudo -u ci makepkg -si --skippgpcheck --noconfirm --needed
+  cd - || exit
+  rm -rf "$package"
 done
 
 cd /etc/ssh
