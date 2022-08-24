@@ -1,6 +1,8 @@
+env
+
 OWD=$(pwd)
 
-pacman --noconfirm -Syu openssh nfs-utils sudo resolvconf wireguard-tools curl git unzip p7zip squashfs-tools repo
+pacman --noconfirm -Syu openssh nfs-utils sudo resolvconf wireguard-tools curl git unzip p7zip squashfs-tools python repo
 
 cd /etc/ssh
 echo "Port 22001" >> sshd_config
@@ -18,7 +20,7 @@ mkdir /home/ci/.ssh /home/ci/aosp
 mount -o sec=sys 100.64.0.1:/srv/aosp /home/ci/aosp
 chmod 0750 /home/ci /home/ci/aosp
 cp sshkey.pub /home/ci/.ssh/authorized_keys
-chmod -R 0600 /home/.ssh
+chmod -R 0600 /home/ci/.ssh
 chown -R ci:ci /home/ci
 
 exit 0
