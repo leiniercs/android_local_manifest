@@ -2,6 +2,8 @@ OWD=$(pwd)
 
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo android-tools android-udev
+export USE_CCACHE=1
+export CCACHE_EXEC=$(which ccache)
 useradd -m ci
 echo "ci ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
 chown -c root:root /etc/sudoers
@@ -11,7 +13,7 @@ for package in $packages; do
   cd /tmp
   sudo -u ci git clone https://aur.archlinux.org/"$package"
   cd "$package" || exit
-  sudo -u ci makepkg -si --skippgpcheck --noconfirm --needed
+  sudo -E -u ci makepkg -si --skippgpcheck --noconfirm --needed
   cd - || exit
   rm -rf "$package"
 done
