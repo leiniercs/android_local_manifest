@@ -1,7 +1,7 @@
 OWD=$(pwd)
 
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo ccache unzip jdk11-openjdk android-tools lib32-ncurses lib32-zlib lib32-readline
+pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo ccache unzip jdk11-openjdk android-tools
 export USE_CCACHE=1
 export CCACHE_EXEC=$(which ccache)
 echo 'MAKEFLAGS="-j$(nproc --all)"' >> /etc/makepkg.conf
