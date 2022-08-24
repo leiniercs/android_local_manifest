@@ -1,11 +1,12 @@
 OWD=$(pwd)
 
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo android-tools android-udev
+pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo android-tools android-udev ccache
 export USE_CCACHE=1
 export CCACHE_EXEC=$(which ccache)
 useradd -m ci
-echo "ci ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
+echo "root ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
+echo "ci ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 chown -c root:root /etc/sudoers
 chmod -c 0440 /etc/sudoers
 packages="ncurses5-compat-libs lib32-ncurses5-compat-libs aosp-devel xml2 lineageos-devel libxcrypt-compat"
