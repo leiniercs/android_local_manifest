@@ -2,8 +2,8 @@ build_task:
   container:
 #    image: leiniercs/acrb:30
     image: archlinux
-    cpu: 1
-    memory: 1G
+    cpu: 8
+    memory: 32G
     kvm: true
 #    greedy: true
 
