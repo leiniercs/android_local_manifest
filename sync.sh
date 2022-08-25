@@ -1,6 +1,6 @@
 # Prepare environment
 source /tmp/cirrus-ci-build/env.sh
-cd ~/aosp
+cd ~/aosp/lineageos
 
 # Setting up Git
 git config --global user.name "${GIT_NAME}"

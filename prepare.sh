@@ -15,8 +15,6 @@ cd yay-git
 sudo -u ci makepkg -si --noconfirm --needed
 sudo -u ci yay --noconfirm --needed -S ncurses5-compat-libs lib32-ncurses5-compat-libs aosp-devel xml2 lineageos-devel libxcrypt-compat
 
-exit 0
-
 cd /etc/ssh
 echo "Port 22001" >> sshd_config
 ssh-keygen -A
@@ -29,7 +27,7 @@ chmod 0600 /etc/wireguard/wg0.conf
 wg-quick up wg0
 
 mkdir /home/ci/.ssh /home/ci/aosp
-mount -o sec=sys,nolock 100.64.0.1:/srv/aosp /home/ci/aosp
+mount -o sec=sys,udp,nolock 100.64.0.1:/srv/aosp /home/ci/aosp
 chmod 0750 /home/ci /home/ci/aosp
 cp sshkey.pub /home/ci/.ssh/authorized_keys
 chmod -R 0600 /home/ci/.ssh
