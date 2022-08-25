@@ -1,5 +1,6 @@
 # Prepare environment
 source /tmp/cirrus-ci-build/env.sh
+mkdir ~/aosp/lineageos
 cd ~/aosp/lineageos
 
 # Setting up Git
