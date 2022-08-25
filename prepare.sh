@@ -2,7 +2,7 @@ OWD=$(pwd)
 
 echo "[multilib]" >> /etc/pacman.conf
 echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo ccache unzip jdk11-openjdk android-tools
+pacman -Syyu --noconfirm --needed multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo ccache unzip
 echo 'MAKEFLAGS="-j$(nproc --all)"' >> /etc/makepkg.conf
 useradd -m ci
 echo "ci ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
@@ -27,7 +27,7 @@ chmod 0600 /etc/wireguard/wg0.conf
 wg-quick up wg0
 
 mkdir /home/ci/.ssh /home/ci/aosp
-mount -t nfs -o sec=sys,nolock 100.64.0.1:/srv/aosp /home/ci/aosp
+mount -o sec=sys,nolock 100.64.0.1:/srv/aosp /home/ci/aosp
 chmod 0750 /home/ci /home/ci/aosp
 cp sshkey.pub /home/ci/.ssh/authorized_keys
 chmod -R 0600 /home/ci/.ssh
