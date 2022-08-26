@@ -3,15 +3,16 @@ container:
   image: archlinux
   cpu: 1
   memory: 1G
+  volumes:
+    - /root/aosp:/home/ci/aosp
 #    kvm: true
 #    greedy: true
 
 sync_task:
   name: Sync
   sync_script:
-  - touch ~/_file
-  - mkdir aosp
-  - ls -lh
+    - cd /home/ci
+    - ls -lh
 
 #  prepare_script: $CIRRUS_WORKING_DIR/prepare.sh
 #  sync_script: sudo -u ci $CIRRUS_WORKING_DIR/sync.sh
@@ -20,13 +21,10 @@ build_task:
   name: Build
   timeout_in: 120m
   build_script:
-#  - cd ~
-#  - touch ~/file
-  - ls -lh
+    - cd /home/ci
+    - ls -lh
 #  build_script: sudo -u ci $CIRRUS_WORKING_DIR/build.sh
 
-publish_task:
-  name: Publish
-  publish_script:
-  - ls -lh
+#publish_task:
+#  name: Publish
 #  publish_script: sudo -u ci $CIRRUS_WORKING_DIR/publish.sh
