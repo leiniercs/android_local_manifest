@@ -4,13 +4,14 @@ container:
   cpu: 1
   memory: 1G
   volumes:
-    - /root/aosp:/srv
+    - /root/aosp:/srv/aosp
 #    kvm: true
 #    greedy: true
 
 sync_task:
   name: Sync
   sync_script:
+    - df -h
     - cd /srv
     - touch file
     - ls -lh
