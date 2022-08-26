@@ -27,7 +27,7 @@ chmod 0600 /etc/wireguard/wg0.conf
 wg-quick up wg0
 
 mkdir /home/ci/.ssh /home/ci/aosp
-mount -o sec=sys,nolock,nconnect=8 100.64.0.1:/srv/aosp /home/ci/aosp
+#mount -o sec=sys,nolock,nconnect=8 100.64.0.1:/srv/aosp /home/ci/aosp
 chmod 0750 /home/ci /home/ci/aosp
 cp sshkey.pub /home/ci/.ssh/authorized_keys
 chmod -R 0600 /home/ci/.ssh
