@@ -1,13 +1,14 @@
 build_task:
+  name: ACRB
+  timeout_in: 120m
+
   container:
 #    image: leiniercs/acrb:30
     image: archlinux
-    cpu: 8
-    memory: 32G
+    cpu: 16
+    memory: 64G
 #    kvm: true
-    greedy: true
-
-  name: ACRB
+#    greedy: true
 
   prepare_script: $CIRRUS_WORKING_DIR/prepare.sh
   sync_script: sudo -u ci $CIRRUS_WORKING_DIR/sync.sh
