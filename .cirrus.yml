@@ -1,10 +1,18 @@
-container:
+gce_instance:
+  image_project: ubuntu-os-cloud
+  image_name: ubuntu-2204-lts
+  zone: us-central1
+  type: e2-standard-32
+  disk: 200
+
+
+#container:
 #    image: leiniercs/acrb:30
-  image: archlinux
-  cpu: 1
-  memory: 1G
-  volumes:
-    - /root:/srv/aosp
+#  image: archlinux
+#  cpu: 1
+#  memory: 1G
+#  volumes:
+#    - /root:/srv/aosp
 #    kvm: true
 #    greedy: true
 
