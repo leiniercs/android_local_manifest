@@ -4,7 +4,7 @@ container:
   cpu: 1
   memory: 1G
   volumes:
-    - /root/aosp:/srv/aosp
+    - /root:/srv/aosp
 #    kvm: true
 #    greedy: true
 
@@ -21,6 +21,7 @@ sync_task:
 
 build_task:
   name: Build
+  depends_on: sync
   timeout_in: 120m
   build_script:
     - cd /srv
