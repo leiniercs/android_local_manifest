@@ -21,7 +21,7 @@ sync_task:
 
 build_task:
   name: Build
-  depends_on: sync
+  depends: sync
   timeout_in: 120m
   build_script:
     - cd /srv
