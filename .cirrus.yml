@@ -4,12 +4,12 @@ build_task:
     image: archlinux
     cpu: 8
     memory: 32G
-    kvm: true
-#    greedy: true
+#    kvm: true
+    greedy: true
 
   name: ACRB
 
-  prepare_script: $CIRRUS_WORKING_DIR/prepare.sh
+#  prepare_script: $CIRRUS_WORKING_DIR/prepare.sh
   sync_script: sudo -u ci $CIRRUS_WORKING_DIR/sync.sh
   build_script: sudo -u ci $CIRRUS_WORKING_DIR/build.sh
-#  publish_script: sudo -u ci $CIRRUS_WORKING_DIR/publish.sh
+  publish_script: sudo -u ci $CIRRUS_WORKING_DIR/publish.sh
