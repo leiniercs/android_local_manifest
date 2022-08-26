@@ -9,8 +9,8 @@ container:
 sync_task:
   name: Sync
   sync_script:
-  - cd ~
-  - touch ~/file
+  - touch ~/_file
+  - mkdir aosp
   - ls -lh
 
 #  prepare_script: $CIRRUS_WORKING_DIR/prepare.sh
@@ -28,6 +28,5 @@ build_task:
 publish_task:
   name: Publish
   publish_script:
-  - cd ~
   - ls -lh
 #  publish_script: sudo -u ci $CIRRUS_WORKING_DIR/publish.sh
