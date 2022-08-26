@@ -2,7 +2,7 @@ OWD=$(pwd)
 
 echo "[multilib]" >> /etc/pacman.conf
 echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-pacman -Syyu --noconfirm --needed multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo ccache unzip
+pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo ccache unzip
 echo 'MAKEFLAGS="-j$(nproc --all)"' >> /etc/makepkg.conf
 useradd -m ci
 echo "ci ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
@@ -15,8 +15,10 @@ cd yay-git
 sudo -u ci makepkg -si --noconfirm --needed
 sudo -u ci yay --noconfirm --needed -S ncurses5-compat-libs lib32-ncurses5-compat-libs aosp-devel xml2 lineageos-devel libxcrypt-compat
 
+exit 0
+
 cd /etc/ssh
-echo "Port 22001" >> sshd_config
+#echo "Port 22001" >> sshd_config
 ssh-keygen -A
 /usr/bin/sshd
 
