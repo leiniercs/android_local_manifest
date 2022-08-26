@@ -13,3 +13,4 @@ build_task:
   sync_script: sudo -u ci $CIRRUS_WORKING_DIR/sync.sh
   build_script: sudo -u ci $CIRRUS_WORKING_DIR/build.sh
   publish_script: sudo -u ci $CIRRUS_WORKING_DIR/publish.sh
+
