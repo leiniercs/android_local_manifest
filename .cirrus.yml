@@ -4,14 +4,15 @@ container:
   cpu: 1
   memory: 1G
   volumes:
-    - /root/aosp:/home/ci/aosp
+    - /root/aosp:/srv
 #    kvm: true
 #    greedy: true
 
 sync_task:
   name: Sync
   sync_script:
-    - cd /home/ci
+    - cd /srv
+    - touch file
     - ls -lh
 
 #  prepare_script: $CIRRUS_WORKING_DIR/prepare.sh
@@ -21,7 +22,7 @@ build_task:
   name: Build
   timeout_in: 120m
   build_script:
-    - cd /home/ci
+    - cd /srv
     - ls -lh
 #  build_script: sudo -u ci $CIRRUS_WORKING_DIR/build.sh
 
