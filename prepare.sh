@@ -1,10 +1,12 @@
+#!/usr/bin/bash
+
 OWD=$(pwd)
 
 echo "[multilib]" >> /etc/pacman.conf
 echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 pacman -Syyu --noconfirm --needed base-devel multilib-devel openssh nfs-utils sudo resolvconf wireguard-tools git python repo ccache unzip
 echo 'MAKEFLAGS="-j$(nproc --all)"' >> /etc/makepkg.conf
-useradd -m ci
+useradd -s /usr/bin/bash -m ci
 echo "ci ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 chown -c root:root /etc/sudoers
 chmod -c 0440 /etc/sudoers
