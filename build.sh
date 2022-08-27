@@ -7,5 +7,5 @@ cd ~/aosp/lineageos
 # Build
 source build/envsetup.sh
 lunch ${ROM_BUILD}
-mka bacon
+mka bacon -j32
 
