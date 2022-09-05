@@ -11,6 +11,5 @@ export ROM_BUILD=lineage_dandelion-user
 export LOCAL_MANIFEST_REPO=leiniercs/android_local_manifest
 export LOCAL_MANIFEST_BRANCH=lineageos
 export HOME=/home/ci
-export NCPU=$(nproc --all)
 export USE_CCACHE=1
 export CCACHE_EXEC=$(which ccache)
