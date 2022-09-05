@@ -5,5 +5,7 @@
 -->
   <project path="device/mediatek/sepolicy_vndr" name="leiniercs/android_device_mediatek_sepolicy_vndr" remote="github" revision="twelve" />
   <project path="device/xiaomi/dandelion" name="leiniercs/android_device_xiaomi_dandelion" remote="github" revision="lineageos" />
+<!--
   <project path="vendor/xiaomi/dandelion" name="leiniercs/android_vendor_xiaomi_dandelion" remote="github" revision="twelve30" />
+-->
 </manifest>
