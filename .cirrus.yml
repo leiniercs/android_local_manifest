@@ -17,5 +17,3 @@ acrb_task:
   sync_script: ./sync.sh
   build_script: ./build.sh
   publish_script: ./publish.sh
-
-
