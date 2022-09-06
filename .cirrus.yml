@@ -9,7 +9,7 @@ container:
 
 acrb_task:
   name: ACRB
-  timeout_in: 120m
+  timeout_in: 180m
 #  prepare_script: $CIRRUS_WORKING_DIR/prepare.sh
 #  sync_script: sudo -u ci $CIRRUS_WORKING_DIR/sync.sh
 #  build_script: sudo -u ci $CIRRUS_WORKING_DIR/build.sh
