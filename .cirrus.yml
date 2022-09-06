@@ -1,7 +1,7 @@
 container:
   image: leiniercs/acrb:30
-  cpu: 4
-  memory: 8G
+  cpu: 32
+  memory: 128G
   greedy: true
 #  image: archlinux
 #  privileged: true
