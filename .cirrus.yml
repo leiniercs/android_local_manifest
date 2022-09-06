@@ -10,7 +10,7 @@ acrb_task:
     cpu: 8
     memory: 32G
     greedy: true
-    sync_script: ./sync.sh
+  sync_script: ./sync.sh
   build_script: ./build.sh
   publish_script: ./publish.sh
 #  prepare_script: $CIRRUS_WORKING_DIR/prepare.sh
