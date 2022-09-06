@@ -7,4 +7,4 @@ cd ~/aosp
 # Build
 source build/envsetup.sh
 lunch ${ROM_BUILD}
-mka bacon -j16
+mka bacon -j$(nproc)

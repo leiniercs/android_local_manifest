@@ -1,11 +1,11 @@
 container:
   image: leiniercs/acrb:30
 #  image: archlinux
-  cpu: 8
-  memory: 32G
-  privileged: true
+  cpu: 4
+  memory: 8G
+#  privileged: true
 #    kvm: true
-#    greedy: true
+  greedy: true
 
 acrb_task:
   name: ACRB
