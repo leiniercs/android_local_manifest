@@ -14,4 +14,5 @@ repo init --manifest-url=https://github.com/${ROM_REPO} --manifest-branch=${ROM_
 git clone https://github.com/${LOCAL_MANIFEST_REPO} -b ${LOCAL_MANIFEST_BRANCH} .repo/local_manifests
 
 # Sync the repository
-repo sync --jobs=4 --current-branch --no-clone-bundle --optimized-fetch --quiet
+repo sync --current-branch --no-clone-bundle --optimized-fetch --quiet
+#repo sync --jobs=4 --current-branch --no-clone-bundle --optimized-fetch --quiet

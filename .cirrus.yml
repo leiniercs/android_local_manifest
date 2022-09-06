@@ -1,20 +1,19 @@
 container:
   image: leiniercs/acrb:30
-#  image: archlinux
   cpu: 4
   memory: 8G
-#  privileged: true
-#    kvm: true
   greedy: true
+#  image: archlinux
+#  privileged: true
+#  kvm: true
 
 acrb_task:
   name: ACRB
-  timeout_in: 180m
+  timeout_in: 120m
+  sync_script: ./sync.sh
+  build_script: ./build.sh
+  publish_script: ./publish.sh
 #  prepare_script: $CIRRUS_WORKING_DIR/prepare.sh
 #  sync_script: sudo -u ci $CIRRUS_WORKING_DIR/sync.sh
 #  build_script: sudo -u ci $CIRRUS_WORKING_DIR/build.sh
 #  publish_script: sudo -u ci $CIRRUS_WORKING_DIR/publish.sh
-  sync_script: ./sync.sh
-  build_script: ./build.sh
-  publish_script: ./publish.sh
-
