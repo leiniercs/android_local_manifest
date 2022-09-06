@@ -1,6 +1,6 @@
-export KBUILD_BUILD_HOST=cloud.google.com
+export KBUILD_BUILD_HOST=cirrus-ci.org
 export KBUILD_BUILD_USER=ci
-export BUILD_HOSTNAME=cloud.google.com
+export BUILD_HOSTNAME=cirrus-ci.org
 export BUILD_USERNAME=ci
 export GIT_NAME=Leinier
 export GIT_EMAIL=leiniercs@gmail.com

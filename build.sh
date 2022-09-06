@@ -2,7 +2,7 @@
 
 # Prepare environment
 source /tmp/cirrus-ci-build/env.sh
-cd ~/aosp/lineageos
+cd ~/aosp
 
 # Build
 source build/envsetup.sh
