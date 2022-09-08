@@ -9,11 +9,8 @@ jobs:
     timeout-minutes: 180
     steps:
     - uses: actions/checkout@v3
-    - name: Clean Up
-      run: |
-        sudo apt -y autoremove --purge
-        sudo apt -y autoclean
-        sudo apt clean
+    - name: Cleanup
+      uses: rokibhasansagar/slimhub_actions@main
     - name: Build
       run: |
         df -h
