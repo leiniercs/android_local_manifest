@@ -15,8 +15,13 @@ jobs:
 
     - name: Check
       run: |
+        sudo apt-get -y purge snap*
+        rm -fr /snap
+        sudo du -h -d 1 /etc
+        sudo du -h -d 1 /home
+        sudo du -h -d 1 /opt
+        sudo du -h -d 1 /root
         df -h
-        sudo du -h -d 1 /
 
     - name: Sync
       env:
