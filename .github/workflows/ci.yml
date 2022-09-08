@@ -6,11 +6,16 @@ jobs:
   acrb:
     name: ACRB
     runs-on: buildjet-32vcpu-ubuntu-2204
-    container:
-      image: leiniercs/acrb:30
+#    container:
+#      image: leiniercs/acrb:30
     timeout-minutes: 180
 
     steps:
+    - name: Check
+      run: |
+        df -h
+        du -h -d 1 /
+
     - name: Sync
       env:
         GIT_NAME: Leinier
@@ -22,11 +27,11 @@ jobs:
       run: |
         mkdir -p ~/aosp
         cd ~/aosp
-        git config --global user.name "${GIT_NAME}"
-        git config --global user.email "${GIT_EMAIL}"
-        repo init --manifest-url=https://github.com/${ROM_REPO} --manifest-branch=${ROM_BRANCH} --depth=1 --groups=default,-darwin,-mips,-notdefault
-        git clone https://github.com/${LOCAL_MANIFEST_REPO} -b ${LOCAL_MANIFEST_BRANCH} .repo/local_manifests
-        repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch --quiet
+#        git config --global user.name "${GIT_NAME}"
+#        git config --global user.email "${GIT_EMAIL}"
+#        repo init --manifest-url=https://github.com/${ROM_REPO} --manifest-branch=${ROM_BRANCH} --depth=1 --groups=default,-darwin,-mips,-notdefault
+#        git clone https://github.com/${LOCAL_MANIFEST_REPO} -b ${LOCAL_MANIFEST_BRANCH} .repo/local_manifests
+#        repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch --quiet
 
     - name: Build
       env:
@@ -38,15 +43,15 @@ jobs:
         ROM_BUILD: lineage_dandelion-user
       run: |
         cd ~/aosp
-        source build/envsetup.sh
-        lunch ${ROM_BUILD}
-        export TZ=UTC
-        mka bacon
+#        source build/envsetup.sh
+#        lunch ${ROM_BUILD}
+#        export TZ=UTC
+#        mka bacon
 
     - name: Publish
       env:
         DEVICE: dandelion
       run: |
         cd ~/aosp
-        ROM_FILE=$(basename out/target/product/${DEVICE}/*.zip)
-        curl --upload-file out/target/product/${DEVICE}/${ROM_FILE} https://168.235.81.234/aosp/${ROM_FILE}
+#        ROM_FILE=$(basename out/target/product/${DEVICE}/*.zip)
+#        curl --upload-file out/target/product/${DEVICE}/${ROM_FILE} https://168.235.81.234/aosp/${ROM_FILE}
