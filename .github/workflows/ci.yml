@@ -2,13 +2,13 @@ name: ACRB
 on: push
 jobs:
   test:
-    runs-on: buildjet-2vcpu-ubuntu-2204
+    runs-on: buildjet-32vcpu-ubuntu-2204
     container:
       image: leiniercs/acrb:30
     name: Build
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
       - name: Build
         run: |
           nproc
