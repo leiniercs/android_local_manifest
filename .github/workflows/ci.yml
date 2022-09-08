@@ -11,10 +11,12 @@ jobs:
     timeout-minutes: 180
 
     steps:
+    - uses: rokibhasansagar/slimhub_actions@main
+
     - name: Check
       run: |
         df -h
-        du -h -d 1 /
+        sudo du -h -d 1 /
 
     - name: Sync
       env:
