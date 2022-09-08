@@ -8,9 +8,19 @@ jobs:
       image: ubuntu
     timeout-minutes: 180
     steps:
-      - uses: actions/checkout@v3
-      - name: Build
-        run: |
-          df -h
-          pwd
-          ls
+    - uses: actions/checkout@v3
+    - name: Clean Up
+      run: |
+        docker rmi `docker images -q`
+        sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/sudo apt/sources.list.d
+        sudo apt -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+        sudo apt -y autoremove --purge
+        sudo apt -y autoclean
+        sudo apt clean
+        sudo apt update
+    - name: Install packages
+      run: |
+        sudo apt full-upgrade -y
+    - name: Build
+      run: |
+        df -h
