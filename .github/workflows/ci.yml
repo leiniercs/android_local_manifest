@@ -12,15 +12,15 @@ jobs:
 
     steps:
     - uses: rokibhasansagar/slimhub_actions@main
+    - uses: curoky/cleanup-disk-action@v2.0
 
     - name: Check
       run: |
-        sudo apt-get -y purge snap*
-        rm -fr /snap
-        sudo du -h -d 1 /etc
-        sudo du -h -d 1 /home
+        sudo apt-get -y purge snapd
+        rm -fr /snap /etc/skel/* /root/.sbt
+        sudo du -h -d 1 /home/runner
         sudo du -h -d 1 /opt
-        sudo du -h -d 1 /root
+        sudo du -h -d 1 /var
         df -h
 
     - name: Sync
