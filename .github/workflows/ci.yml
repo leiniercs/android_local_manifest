@@ -14,14 +14,18 @@ jobs:
     - uses: rokibhasansagar/slimhub_actions@main
     - uses: curoky/cleanup-disk-action@v2.0
 
-    - name: Check
+    - name: Cleanup
       run: |
         sudo apt-get -y purge snapd
-        sudo rm -fr /snap /etc/skel/* /root/.sbt
-        sudo du -h -d 1 /home/runner
-        sudo du -h -d 1 /opt
-        sudo du -h -d 1 /var
+        sudo rm -fr /snap /etc/skel/* /root/.sbt /opt/goocle /opt/microsoft
         df -h
+
+    - name: Install packages
+      run: |
+        pwd
+        sudo apt-get -y install git
+        git clone https://github.com/akhilnarang/scripts
+        bash scripts/setup/android_build_env.sh
 
     - name: Sync
       env:
