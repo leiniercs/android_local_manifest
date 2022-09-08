@@ -9,8 +9,7 @@ jobs:
     timeout-minutes: 180
     steps:
     - uses: actions/checkout@v3
-    - name: Cleanup
-      uses: rokibhasansagar/slimhub_actions@main
     - name: Build
       run: |
-        df -h
+        cd /
+        du -h -d 1
