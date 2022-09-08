@@ -8,26 +8,26 @@ jobs:
     runs-on: buildjet-32vcpu-ubuntu-2204
 #    container:
 #      image: leiniercs/acrb:30
-    timeout-minutes: 180
 
     steps:
     - uses: rokibhasansagar/slimhub_actions@main
     - uses: curoky/cleanup-disk-action@v2.0
 
     - name: Cleanup
+      timeout-minutes: 15
       run: |
         sudo apt-get -y purge snapd
         sudo rm -fr /snap /etc/skel/* /root/.sbt /opt/goocle /opt/microsoft
-        df -h
 
     - name: Install packages
+      timeout-minutes: 15
       run: |
-        pwd
         sudo apt-get -y install git
         git clone https://github.com/akhilnarang/scripts
         bash scripts/setup/android_build_env.sh
 
     - name: Sync
+      timeout-minutes: 30
       env:
         GIT_NAME: Leinier
         GIT_EMAIL: leiniercs@gmail.com
@@ -36,15 +36,16 @@ jobs:
         LOCAL_MANIFEST_REPO: leiniercs/android_local_manifest
         LOCAL_MANIFEST_BRANCH: lineageos
       run: |
-        mkdir -p ~/aosp
-        cd ~/aosp
-#        git config --global user.name "${GIT_NAME}"
-#        git config --global user.email "${GIT_EMAIL}"
-#        repo init --manifest-url=https://github.com/${ROM_REPO} --manifest-branch=${ROM_BRANCH} --depth=1 --groups=default,-darwin,-mips,-notdefault
-#        git clone https://github.com/${LOCAL_MANIFEST_REPO} -b ${LOCAL_MANIFEST_BRANCH} .repo/local_manifests
-#        repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch --quiet
+        mkdir aosp
+        cd aosp
+        git config --global user.name "${GIT_NAME}"
+        git config --global user.email "${GIT_EMAIL}"
+        repo init --manifest-url=https://github.com/${ROM_REPO} --manifest-branch=${ROM_BRANCH} --depth=1 --groups=default,-darwin,-mips,-notdefault
+        git clone https://github.com/${LOCAL_MANIFEST_REPO} -b ${LOCAL_MANIFEST_BRANCH} .repo/local_manifests
+        repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch --quiet
 
     - name: Build
+      timeout-minutes: 180
       env:
         KBUILD_BUILD_HOST: cirrus-ci.org
         KBUILD_BUILD_USER: ci
@@ -53,16 +54,17 @@ jobs:
         DEVICE: dandelion
         ROM_BUILD: lineage_dandelion-user
       run: |
-        cd ~/aosp
-#        source build/envsetup.sh
-#        lunch ${ROM_BUILD}
-#        export TZ=UTC
-#        mka bacon
+        cd aosp
+        source build/envsetup.sh
+        lunch ${ROM_BUILD}
+        export TZ=UTC
+        mka bacon
 
     - name: Publish
+      timeout-minutes: 30
       env:
         DEVICE: dandelion
       run: |
-        cd ~/aosp
-#        ROM_FILE=$(basename out/target/product/${DEVICE}/*.zip)
-#        curl --upload-file out/target/product/${DEVICE}/${ROM_FILE} https://168.235.81.234/aosp/${ROM_FILE}
+        cd aosp
+        ROM_FILE=$(basename out/target/product/${DEVICE}/*.zip)
+        curl --upload-file out/target/product/${DEVICE}/${ROM_FILE} https://168.235.81.234/aosp/${ROM_FILE}
