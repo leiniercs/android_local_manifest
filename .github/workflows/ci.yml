@@ -5,21 +5,18 @@ jobs:
     name: ACRB
     runs-on: buildjet-32vcpu-ubuntu-2204
     container:
-      image: ubuntu
+      image: leiniercs/acrb:30
     timeout-minutes: 180
     steps:
     - uses: actions/checkout@v3
     - name: Clean Up
       run: |
-        rm -rf /usr/share/dotnet /etc/mysql /etc/php
-        apt -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-        apt -y autoremove --purge
-        apt -y autoclean
-        apt clean
-        apt update
-    - name: Install packages
-      run: |
-        apt -y full-upgrade
+        sudo docker rmi `docker images -q`
+        sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php
+        sudo apt -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
+        sudo apt -y autoremove --purge
+        sudo apt -y autoclean
+        sudo apt clean
     - name: Build
       run: |
         df -h
