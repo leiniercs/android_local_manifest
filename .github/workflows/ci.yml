@@ -11,5 +11,10 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build
       run: |
-        cd /
+        df -h | grep overlay
+        cd /__t/
         sudo du -h -d 1
+        cd ~
+        pwd
+        sudo rm -fr /__t
+        df -h | grep overlay
