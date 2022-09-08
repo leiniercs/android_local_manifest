@@ -6,28 +6,24 @@ jobs:
   acrb:
     name: ACRB
     runs-on: buildjet-32vcpu-ubuntu-2204
-#    container:
-#      image: leiniercs/acrb:30
+    timeout-minutes: 180
 
     steps:
     - uses: rokibhasansagar/slimhub_actions@main
     - uses: curoky/cleanup-disk-action@v2.0
 
     - name: Cleanup
-      timeout-minutes: 15
       run: |
         sudo apt-get -y purge snapd
         sudo rm -fr /snap /etc/skel/* /root/.sbt /opt/goocle /opt/microsoft
 
     - name: Install packages
-      timeout-minutes: 15
       run: |
         sudo apt-get -y install git
         git clone https://github.com/akhilnarang/scripts
         bash scripts/setup/android_build_env.sh
 
     - name: Sync
-      timeout-minutes: 30
       env:
         GIT_NAME: Leinier
         GIT_EMAIL: leiniercs@gmail.com
@@ -45,15 +41,20 @@ jobs:
         repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch --quiet
 
     - name: Build
-      timeout-minutes: 180
       env:
-        KBUILD_BUILD_HOST: cirrus-ci.org
+        KBUILD_BUILD_HOST: github.com
         KBUILD_BUILD_USER: ci
-        BUILD_HOSTNAME: cirrus-ci.org
+        BUILD_HOSTNAME: gitbub.com
         BUILD_USERNAME: ci
         DEVICE: dandelion
         ROM_BUILD: lineage_dandelion-user
+        USE_CCACHE: 1
+        CCACHE_DIR: /home/runner/ccache
+        CCACHE_EXEC: /usr/bin/ccache
       run: |
+        mkdir ${CCACHE_DIR}
+        ccache -M 8
+        ccache -z
         cd aosp
         source build/envsetup.sh
         lunch ${ROM_BUILD}
@@ -61,7 +62,6 @@ jobs:
         mka bacon
 
     - name: Publish
-      timeout-minutes: 30
       env:
         DEVICE: dandelion
       run: |
