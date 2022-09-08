@@ -1,16 +1,17 @@
 name: ACRB
 on: push
 jobs:
-  test:
+  acrb:
+    name: ACRB
     runs-on: buildjet-32vcpu-ubuntu-2204
     container:
-      image: leiniercs/acrb:30
-    name: Build
+      image: ubuntu-latest
+    timeout-minutes: 180
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build
         run: |
-          nproc
-          free -h
           df -h
+          pwd
+          ls
