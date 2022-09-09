@@ -1,10 +1,10 @@
-name: ACRB
+name: AOSP
 
 on: push
 
 jobs:
-  acrb:
-    name: ACRB
+  aosp:
+    name: Build
     runs-on: buildjet-32vcpu-ubuntu-2204
     timeout-minutes: 180
 
@@ -15,9 +15,9 @@ jobs:
     - name: Cleanup
       run: |
         sudo apt-get -y purge snapd
-        sudo rm -fr /snap /etc/skel/* /root/.sbt /opt/goocle /opt/microsoft
+        sudo rm -fr /snap /etc/skel/* /root/.sbt /opt/google /opt/microsoft
 
-    - name: Install packages
+    - name: Install
       run: |
         sudo apt-get -y install git
         git clone https://github.com/akhilnarang/scripts
@@ -42,9 +42,9 @@ jobs:
 
     - name: Build
       env:
-        KBUILD_BUILD_HOST: github.com
+        KBUILD_BUILD_HOST: buildjet.com
         KBUILD_BUILD_USER: ci
-        BUILD_HOSTNAME: gitbub.com
+        BUILD_HOSTNAME: buildjet.com
         BUILD_USERNAME: ci
         DEVICE: dandelion
         ROM_BUILD: lineage_dandelion-user
