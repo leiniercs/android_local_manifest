@@ -1,0 +1,17 @@
+name: Specs
+
+jobs:
+  specs:
+    name: Specs
+    runs-on: buildjet-32vcpu-ubuntu-2204
+    timeout-minutes: 5
+
+    steps:
+      - name: Env
+        run: env
+
+      - name: Show
+        run: |
+          nproc
+          free -h
+          df -h

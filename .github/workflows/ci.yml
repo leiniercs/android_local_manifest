@@ -1,6 +1,6 @@
 name: AOSP
 
-on: push
+#on: push
 
 jobs:
   aosp:
@@ -9,62 +9,62 @@ jobs:
     timeout-minutes: 180
 
     steps:
-    - uses: rokibhasansagar/slimhub_actions@main
-    - uses: curoky/cleanup-disk-action@v2.0
+      - uses: rokibhasansagar/slimhub_actions@main
+      - uses: curoky/cleanup-disk-action@v2.0
 
-    - name: Cleanup
-      run: |
-        sudo apt-get -y purge snapd
-        sudo rm -fr /snap /etc/skel/* /root/.sbt /opt/google /opt/microsoft
+      - name: Cleanup
+        run: |
+          sudo apt-get -y purge snapd
+          sudo rm -fr /snap /etc/skel/* /root/.sbt /opt/google /opt/microsoft
 
-    - name: Install
-      run: |
-        sudo apt-get -y install git
-        git clone https://github.com/akhilnarang/scripts
-        bash scripts/setup/android_build_env.sh
+      - name: Install
+        run: |
+          sudo apt-get -y install git
+          git clone https://github.com/akhilnarang/scripts
+          bash scripts/setup/android_build_env.sh
 
-    - name: Sync
-      env:
-        GIT_NAME: Leinier
-        GIT_EMAIL: leiniercs@gmail.com
-        ROM_REPO: LineageOS/android
-        ROM_BRANCH: lineage-19.1
-        LOCAL_MANIFEST_REPO: leiniercs/android_local_manifest
-        LOCAL_MANIFEST_BRANCH: lineageos
-      run: |
-        mkdir aosp
-        cd aosp
-        git config --global user.name "${GIT_NAME}"
-        git config --global user.email "${GIT_EMAIL}"
-        repo init --manifest-url=https://github.com/${ROM_REPO} --manifest-branch=${ROM_BRANCH} --depth=1 --groups=default,-darwin,-mips,-notdefault
-        git clone https://github.com/${LOCAL_MANIFEST_REPO} -b ${LOCAL_MANIFEST_BRANCH} .repo/local_manifests
-        repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch --quiet
+      - name: Sync
+        env:
+          GIT_NAME: Leinier
+          GIT_EMAIL: leiniercs@gmail.com
+          ROM_REPO: LineageOS/android
+          ROM_BRANCH: lineage-19.1
+          LOCAL_MANIFEST_REPO: leiniercs/android_local_manifest
+          LOCAL_MANIFEST_BRANCH: lineageos
+        run: |
+          mkdir ~/aosp
+          cd ~/aosp
+          git config --global user.name "${GIT_NAME}"
+          git config --global user.email "${GIT_EMAIL}"
+          repo init --manifest-url=https://github.com/${ROM_REPO} --manifest-branch=${ROM_BRANCH} --depth=1 --groups=default,-darwin,-mips,-notdefault
+          git clone https://github.com/${LOCAL_MANIFEST_REPO} -b ${LOCAL_MANIFEST_BRANCH} .repo/local_manifests
+          repo sync --jobs=8 --current-branch --no-clone-bundle --optimized-fetch --quiet
 
-    - name: Build
-      env:
-        KBUILD_BUILD_HOST: buildjet.com
-        KBUILD_BUILD_USER: ci
-        BUILD_HOSTNAME: buildjet.com
-        BUILD_USERNAME: ci
-        DEVICE: dandelion
-        ROM_BUILD: lineage_dandelion-user
-        USE_CCACHE: 1
-        CCACHE_DIR: /home/runner/ccache
-        CCACHE_EXEC: /usr/bin/ccache
-      run: |
-        mkdir ${CCACHE_DIR}
-        ccache -M 8
-        ccache -z
-        cd aosp
-        source build/envsetup.sh
-        lunch ${ROM_BUILD}
-        export TZ=UTC
-        mka bacon
+      - name: Build
+        env:
+          KBUILD_BUILD_HOST: buildjet.com
+          KBUILD_BUILD_USER: ci
+          BUILD_HOSTNAME: buildjet.com
+          BUILD_USERNAME: ci
+          DEVICE: dandelion
+          ROM_BUILD: lineage_dandelion-user
+          USE_CCACHE: 1
+          CCACHE_DIR: ~/ccache
+          CCACHE_EXEC: /usr/bin/ccache
+        run: |
+          mkdir ${CCACHE_DIR}
+          ccache -M 8
+          ccache -z
+          cd ~/aosp
+          source build/envsetup.sh
+          lunch ${ROM_BUILD}
+          export TZ=UTC
+          mka bacon
 
-    - name: Publish
-      env:
-        DEVICE: dandelion
-      run: |
-        cd aosp
-        ROM_FILE=$(basename out/target/product/${DEVICE}/*.zip)
-        curl --upload-file out/target/product/${DEVICE}/${ROM_FILE} https://168.235.81.234/aosp/${ROM_FILE}
+      - name: Publish
+        env:
+          DEVICE: dandelion
+        run: |
+          cd ~/aosp
+          ROM_FILE=$(basename out/target/product/${DEVICE}/*.zip)
+          curl --upload-file out/target/product/${DEVICE}/${ROM_FILE} https://168.235.81.234/aosp/${ROM_FILE}
