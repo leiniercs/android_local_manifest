@@ -1,5 +1,7 @@
 name: Specs
 
+on: push
+
 jobs:
   specs:
     name: Specs
