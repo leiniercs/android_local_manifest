@@ -1,6 +1,6 @@
 name: AOSP
 
-on: push
+#on: push
 
 jobs:
   aosp:
@@ -59,7 +59,8 @@ jobs:
           source build/envsetup.sh
           lunch ${ROM_BUILD}
           export TZ=UTC
-          mka bacon || df -h
+          mka bacon
+          ccache -s
 
       - name: Publish
         env:
