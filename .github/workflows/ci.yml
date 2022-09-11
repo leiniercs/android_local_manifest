@@ -49,9 +49,9 @@ jobs:
           DEVICE: dandelion
           ROM_BUILD: lineage_dandelion-user
           USE_CCACHE: 1
-          CCACHE_DIR: ~/ccache
           CCACHE_EXEC: /usr/bin/ccache
         run: |
+          export CCACHE_DIR=~/ccache
           mkdir ${CCACHE_DIR}
           ccache -M 8
           ccache -z
