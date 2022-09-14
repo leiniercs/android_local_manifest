@@ -14,4 +14,3 @@ jobs:
           nproc
           free -h
           df -h
-
